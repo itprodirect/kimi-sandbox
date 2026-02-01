@@ -32,7 +32,7 @@ export class KimiError extends Error {
 }
 
 const DEFAULT_SYSTEM_PROMPT = "You are a senior software engineer. Be concise and practical.";
-const DEFAULT_MAX_TOKENS = 500;
+const DEFAULT_MAX_TOKENS = 5000;
 
 export async function callKimi(req: KimiRequest): Promise<KimiResponse> {
   const apiKey = process.env.MOONSHOT_API_KEY;
