@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface KimiResponse {
   ok: boolean;
@@ -27,9 +27,15 @@ export default function Home() {
   const [variables, setVariables] = useState<Record<string, string>>({});
   const [customPrompt, setCustomPrompt] = useState("");
   const [maxTokens, setMaxTokens] = useState(5000);
+  const [streaming, setStreaming] = useState(true);
   const [response, setResponse] = useState<KimiResponse | null>(null);
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState<"content" | "reasoning" | "raw">("content");
+
+  // Streaming state
+  const [streamContent, setStreamContent] = useState("");
+  const [streamReasoning, setStreamReasoning] = useState("");
+  const abortControllerRef = useRef<AbortController | null>(null);
 
   // Load template list on mount
   useEffect(() => {
@@ -52,7 +58,6 @@ export default function Home() {
       .then((d) => {
         if (d.ok) {
           setTemplateInfo(d);
-          // Initialize variables with empty strings
           const vars: Record<string, string> = {};
           d.variables.forEach((v: string) => (vars[v] = ""));
           setVariables(vars);
@@ -72,13 +77,94 @@ export default function Home() {
     return prompt;
   }
 
-  async function run() {
-    const prompt = buildPrompt();
-    if (!prompt.trim()) return;
+  async function runStream(prompt: string) {
+    setStreamContent("");
+    setStreamReasoning("");
+    setActiveTab("reasoning"); // Start with reasoning tab for streaming
 
-    setLoading(true);
-    setResponse(null);
+    abortControllerRef.current = new AbortController();
 
+    try {
+      const r = await fetch("/api/kimi/stream", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt, maxTokens }),
+        signal: abortControllerRef.current.signal,
+      });
+
+      if (!r.ok) {
+        const error = await r.json();
+        setResponse({ ok: false, error: error.error || "Stream request failed" });
+        return;
+      }
+
+      const reader = r.body?.getReader();
+      if (!reader) {
+        setResponse({ ok: false, error: "No response body" });
+        return;
+      }
+
+      const decoder = new TextDecoder();
+      let content = "";
+      let reasoning = "";
+      let usage = null;
+      let buffer = "";
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split("\n");
+        buffer = lines.pop() || "";
+
+        for (const line of lines) {
+          const trimmed = line.trim();
+          if (!trimmed || trimmed === "data: [DONE]") continue;
+
+          if (trimmed.startsWith("data: ")) {
+            try {
+              const data = JSON.parse(trimmed.slice(6));
+              if (data.content) {
+                content += data.content;
+                setStreamContent(content);
+              }
+              if (data.reasoning) {
+                reasoning += data.reasoning;
+                setStreamReasoning(reasoning);
+              }
+              if (data.usage) {
+                usage = data.usage;
+              }
+            } catch {
+              // Skip malformed JSON
+            }
+          }
+        }
+      }
+
+      // Set final response
+      setResponse({
+        ok: true,
+        content,
+        reasoningContent: reasoning || undefined,
+        usage: usage || undefined,
+      });
+
+      // Switch to content tab if no reasoning
+      if (!reasoning && content) {
+        setActiveTab("content");
+      }
+    } catch (e) {
+      if (e instanceof Error && e.name === "AbortError") {
+        setResponse({ ok: false, error: "Request cancelled" });
+      } else {
+        setResponse({ ok: false, error: e instanceof Error ? e.message : "Stream failed" });
+      }
+    }
+  }
+
+  async function runNonStream(prompt: string) {
     try {
       const r = await fetch("/api/kimi", {
         method: "POST",
@@ -90,10 +176,33 @@ export default function Home() {
       setActiveTab(data.reasoningContent ? "reasoning" : "content");
     } catch (e) {
       setResponse({ ok: false, error: e instanceof Error ? e.message : "Request failed" });
-    } finally {
-      setLoading(false);
     }
   }
+
+  async function run() {
+    const prompt = buildPrompt();
+    if (!prompt.trim()) return;
+
+    setLoading(true);
+    setResponse(null);
+
+    if (streaming) {
+      await runStream(prompt);
+    } else {
+      await runNonStream(prompt);
+    }
+
+    setLoading(false);
+  }
+
+  function stop() {
+    abortControllerRef.current?.abort();
+    setLoading(false);
+  }
+
+  // Display content (streaming or final)
+  const displayContent = loading && streaming ? streamContent : response?.content;
+  const displayReasoning = loading && streaming ? streamReasoning : response?.reasoningContent;
 
   return (
     <main className="min-h-screen bg-gray-950 text-gray-100 p-6">
@@ -101,7 +210,7 @@ export default function Home() {
         <h1 className="text-3xl font-bold mb-6">Kimi Sandbox</h1>
 
         {/* Controls Row */}
-        <div className="flex gap-4 mb-4 flex-wrap">
+        <div className="flex gap-4 mb-4 flex-wrap items-end">
           <div className="flex-1 min-w-48">
             <label className="block text-sm text-gray-400 mb-1">Template</label>
             <select
@@ -129,6 +238,19 @@ export default function Home() {
               step={500}
               className="w-full bg-gray-800 border border-gray-700 rounded px-3 py-2 text-gray-100"
             />
+          </div>
+
+          <div className="flex items-center gap-2 pb-1">
+            <input
+              type="checkbox"
+              id="streaming"
+              checked={streaming}
+              onChange={(e) => setStreaming(e.target.checked)}
+              className="w-4 h-4 rounded bg-gray-800 border-gray-700"
+            />
+            <label htmlFor="streaming" className="text-sm text-gray-400">
+              Stream
+            </label>
           </div>
         </div>
 
@@ -177,20 +299,30 @@ export default function Home() {
           </div>
         )}
 
-        {/* Run Button */}
-        <button
-          onClick={run}
-          disabled={loading}
-          className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-700 disabled:cursor-not-allowed px-6 py-2 rounded font-medium transition-colors"
-        >
-          {loading ? "Running..." : "Run"}
-        </button>
+        {/* Run/Stop Buttons */}
+        <div className="flex gap-2">
+          <button
+            onClick={run}
+            disabled={loading}
+            className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-700 disabled:cursor-not-allowed px-6 py-2 rounded font-medium transition-colors"
+          >
+            {loading ? "Running..." : "Run"}
+          </button>
+          {loading && streaming && (
+            <button
+              onClick={stop}
+              className="bg-red-600 hover:bg-red-700 px-6 py-2 rounded font-medium transition-colors"
+            >
+              Stop
+            </button>
+          )}
+        </div>
 
         {/* Response */}
-        {response && (
+        {(response || (loading && streaming && (streamContent || streamReasoning))) && (
           <div className="mt-6">
             {/* Token Usage */}
-            {response.usage && (
+            {response?.usage && (
               <div className="flex gap-4 text-sm text-gray-400 mb-4">
                 <span>Prompt: {response.usage.prompt_tokens.toLocaleString()} tokens</span>
                 <span>Completion: {response.usage.completion_tokens.toLocaleString()} tokens</span>
@@ -200,15 +332,23 @@ export default function Home() {
               </div>
             )}
 
+            {/* Streaming indicator */}
+            {loading && streaming && (
+              <div className="flex items-center gap-2 text-sm text-blue-400 mb-4">
+                <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
+                Streaming...
+              </div>
+            )}
+
             {/* Error Display */}
-            {!response.ok && (
+            {response && !response.ok && (
               <div className="bg-red-900/50 border border-red-700 rounded-lg p-4 text-red-200">
                 {response.error}
               </div>
             )}
 
             {/* Success Display */}
-            {response.ok && (
+            {(response?.ok || (loading && streaming)) && (
               <div className="bg-gray-900 border border-gray-800 rounded-lg overflow-hidden">
                 {/* Tabs */}
                 <div className="flex border-b border-gray-800">
@@ -222,7 +362,7 @@ export default function Home() {
                   >
                     Content
                   </button>
-                  {response.reasoningContent && (
+                  {(displayReasoning || loading) && (
                     <button
                       onClick={() => setActiveTab("reasoning")}
                       className={`px-4 py-2 text-sm font-medium transition-colors ${
@@ -250,17 +390,23 @@ export default function Home() {
                 <div className="p-4 max-h-[600px] overflow-auto">
                   {activeTab === "content" && (
                     <div className="whitespace-pre-wrap font-mono text-sm text-gray-200">
-                      {response.content || "(empty)"}
+                      {displayContent || (loading ? "" : "(empty)")}
+                      {loading && streaming && activeTab === "content" && (
+                        <span className="inline-block w-2 h-4 bg-gray-400 animate-pulse ml-1" />
+                      )}
                     </div>
                   )}
                   {activeTab === "reasoning" && (
                     <div className="whitespace-pre-wrap font-mono text-sm text-yellow-200">
-                      {response.reasoningContent || "(no reasoning content)"}
+                      {displayReasoning || (loading ? "" : "(no reasoning content)")}
+                      {loading && streaming && activeTab === "reasoning" && (
+                        <span className="inline-block w-2 h-4 bg-yellow-400 animate-pulse ml-1" />
+                      )}
                     </div>
                   )}
                   {activeTab === "raw" && (
                     <pre className="text-xs text-gray-400 overflow-auto">
-                      {JSON.stringify(response, null, 2)}
+                      {response ? JSON.stringify(response, null, 2) : "{}"}
                     </pre>
                   )}
                 </div>

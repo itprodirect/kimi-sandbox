@@ -5,6 +5,7 @@ export interface KimiRequest {
   systemPrompt?: string;
   maxTokens?: number;
   trackTokens?: boolean;
+  stream?: boolean;
 }
 
 export interface KimiUsage {
@@ -83,4 +84,50 @@ export async function callKimi(req: KimiRequest): Promise<KimiResponse> {
     usage,
     raw: data,
   };
+}
+
+export interface KimiStreamCallbacks {
+  onContent?: (delta: string) => void;
+  onReasoning?: (delta: string) => void;
+  onUsage?: (usage: KimiUsage) => void;
+  onDone?: () => void;
+  onError?: (error: Error) => void;
+}
+
+export async function streamKimi(req: KimiRequest): Promise<Response> {
+  const apiKey = process.env.MOONSHOT_API_KEY;
+  const base = process.env.MOONSHOT_BASE || "https://api.moonshot.ai/v1";
+
+  if (!apiKey) {
+    throw new KimiError("Missing MOONSHOT_API_KEY");
+  }
+
+  const resp = await fetch(`${base}/chat/completions`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      model: "kimi-k2.5",
+      messages: [
+        { role: "system", content: req.systemPrompt ?? DEFAULT_SYSTEM_PROMPT },
+        { role: "user", content: String(req.prompt ?? "") },
+      ],
+      max_tokens: req.maxTokens ?? DEFAULT_MAX_TOKENS,
+      temperature: 1,
+      stream: true,
+    }),
+  });
+
+  if (!resp.ok) {
+    const data = await resp.json();
+    throw new KimiError(
+      data?.error?.message ?? `Kimi API error: ${resp.status}`,
+      resp.status,
+      data
+    );
+  }
+
+  return resp;
 }
