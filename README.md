@@ -1,21 +1,27 @@
 # Kimi Sandbox
 
-A lightweight Next.js sandbox for Moonshot's **Kimi 2.5** model. Designed as a reusable foundation for cheap LLM-powered planning, code review, refactoring guidance, and idea synthesis across multiple AI projects.
+A Next.js sandbox for **multi-model LLM comparison** with Moonshot's Kimi and OpenAI models. Designed as a reusable foundation for testing, comparing, and evaluating LLM outputs across providers.
 
-Kimi serves as the **low-cost cognitive engine**. Expensive models (Claude Opus, Codex) are reserved for final builds, reviews, and multi-file diffs.
+## Features
+
+- **A/B Model Comparison** — Run the same prompt through multiple models side-by-side
+- **Multi-turn Chat** — Conversation history with context retention testing
+- **Prompt Templates** — 6 reusable templates for common tasks
+- **Streaming Responses** — Real-time output with reasoning display (Kimi)
+- **Response Logging** — All responses logged to JSONL for analysis
+- **Token Tracking** — Usage stats per request and cumulative
 
 ## Stack
 
 - **Framework:** Next.js 16 (App Router, Turbopack)
 - **Language:** TypeScript
-- **UI:** Tailwind CSS (default scaffold)
-- **LLM Provider:** Moonshot (`kimi-k2.5`)
-- **Auth:** API key via `.env.local`
+- **UI:** Tailwind CSS
+- **LLM Providers:** Moonshot (Kimi), OpenAI
 
 ## Quick Start
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/itprodirect/kimi-sandbox.git
 cd kimi-sandbox
 npm install
 ```
@@ -25,11 +31,13 @@ npm install
 Create `.env.local` in the project root:
 
 ```env
-MOONSHOT_API_KEY=your-key-here
+# Kimi / Moonshot
+MOONSHOT_API_KEY=your-moonshot-key
 MOONSHOT_BASE=https://api.moonshot.ai/v1
-```
 
-> Source of truth for keys: **LastPass**. Never commit `.env.local`.
+# OpenAI
+OPENAI_API_KEY=your-openai-key
+```
 
 ### Run
 
@@ -37,56 +45,82 @@ MOONSHOT_BASE=https://api.moonshot.ai/v1
 npm run dev
 ```
 
-### Test the API
+Open http://localhost:3000
 
-```bash
-curl -X POST http://localhost:3000/api/kimi \
-  -H "Content-Type: application/json" \
-  -d '{"prompt":"Say OK"}'
-```
+## Pages
 
-Expected: `200` with `data.choices[0].message.content` populated.
+| Route | Purpose |
+|-------|---------|
+| `/` | Template-based single prompts |
+| `/chat` | Multi-turn conversation |
+| `/compare` | A/B model comparison |
 
-### Use the UI
+## Available Models
 
-Open `http://localhost:3000`. Type a prompt, hit send. Response renders below the input.
+### Kimi (Moonshot)
+- Kimi K2
+- Kimi K2.5 (with reasoning content)
 
-## API Route
+### OpenAI
+- GPT-4.1, GPT-4.1 Mini, GPT-4.1 Nano
+- o3, o4 Mini (reasoning models)
 
-`POST /api/kimi` — accepts `{ "prompt": "..." }`, returns Moonshot chat completion response.
+## API Routes
 
-Key constraint: **`temperature` must be exactly `1`** for `kimi-k2.5`. Moonshot rejects any other value with HTTP 400.
+| Endpoint | Method | Purpose |
+|----------|--------|---------|
+| `/api/kimi` | POST | Kimi completion |
+| `/api/kimi/stream` | POST | Kimi streaming |
+| `/api/openai` | POST | OpenAI completion |
+| `/api/openai/stream` | POST | OpenAI streaming |
+| `/api/templates` | GET | List/load prompt templates |
+| `/api/logs` | GET | View response logs and stats |
 
-## Intended Use Cases
+## Prompt Templates
 
-- **Planning:** Generate implementation plans, file trees, step-by-step build sequences
-- **Refactoring:** Analyze existing code and suggest structural improvements
-- **Code Review:** Cheap first-pass review before expensive model review
-- **Idea Synthesis:** Brainstorm, compare approaches, generate outlines
+| Template | Use Case |
+|----------|----------|
+| `planner` | File trees, build order |
+| `refactor` | Code improvement analysis |
+| `reviewer` | PR review checklist |
+| `synthesizer` | Compare approaches |
+| `commit` | Conventional commit messages |
+| `test` | Test case scaffolds |
 
 ## Project Structure
 
 ```
 kimi-sandbox/
 ├─ app/
-│  ├─ api/kimi/route.ts   ← Server-side Moonshot proxy
-│  ├─ page.tsx             ← Simple prompt UI
-│  ├─ layout.tsx
-│  ├─ globals.css
-│  └─ favicon.ico
-├─ .env.local              ← API keys (gitignored)
-├─ package.json
-└─ README.md
+│  ├─ api/
+│  │  ├─ kimi/          ← Kimi API routes
+│  │  ├─ openai/        ← OpenAI API routes
+│  │  ├─ templates/     ← Template loader
+│  │  └─ logs/          ← Log viewer
+│  ├─ chat/             ← Multi-turn chat page
+│  ├─ compare/          ← A/B comparison page
+│  └─ page.tsx          ← Template UI
+├─ lib/
+│  ├─ kimi.ts           ← Kimi client
+│  ├─ openai.ts         ← OpenAI client
+│  ├─ logger.ts         ← Response logging
+│  ├─ prompts.ts        ← Template loader
+│  └─ tokens.ts         ← Usage tracking
+├─ prompts/             ← Markdown templates
+├─ logs/                ← Response logs (gitignored)
+└─ .env.local           ← API keys (gitignored)
 ```
 
-## Rate Limits (Free Tier)
+## Provider Notes
 
-| Metric      | Limit     |
-|-------------|-----------|
-| Concurrency | 100       |
-| RPM         | 500       |
-| TPM         | 3,000,000 |
-| TPD         | Unlimited |
+### Kimi
+- `temperature` must be exactly `1` (API requirement)
+- Returns `reasoning_content` field with chain-of-thought
+- Free tier: 500 RPM / 3M TPM
+
+### OpenAI
+- Standard Chat Completions API
+- Streaming with usage stats via `stream_options`
 
 ## License
 

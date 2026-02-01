@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { callKimi, KimiError, ChatMessage } from "@/lib/kimi";
+import { callOpenAI, OpenAIError, ChatMessage } from "@/lib/openai";
 import { logResponse } from "@/lib/logger";
 
 export const runtime = "nodejs";
@@ -9,23 +9,20 @@ export async function POST(req: Request) {
 
   try {
     const { prompt, messages, systemPrompt, maxTokens, model, template } = await req.json();
-    const result = await callKimi({ prompt, messages, systemPrompt, maxTokens, model });
+    const result = await callOpenAI({ prompt, messages, systemPrompt, maxTokens, model });
     const durationMs = Date.now() - startTime;
 
-    // Get prompt for logging (last user message or single prompt)
     const logPrompt = messages
       ? (messages as ChatMessage[]).filter((m: ChatMessage) => m.role === "user").pop()?.content ?? ""
       : prompt;
 
-    // Log successful response
     logResponse({
-      model: "kimi-k2.5",
+      model: result.model,
       template,
       prompt: logPrompt,
       systemPrompt,
       maxTokens: maxTokens || 5000,
       content: result.content,
-      reasoningContent: result.reasoningContent,
       usage: result.usage,
       durationMs,
     });
@@ -34,9 +31,9 @@ export async function POST(req: Request) {
   } catch (e) {
     const durationMs = Date.now() - startTime;
 
-    if (e instanceof KimiError) {
+    if (e instanceof OpenAIError) {
       logResponse({
-        model: "kimi-k2.5",
+        model: "openai",
         prompt: "",
         maxTokens: 0,
         content: "",

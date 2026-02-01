@@ -209,12 +209,20 @@ export default function Home() {
       <div className="max-w-5xl mx-auto">
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-3xl font-bold">Kimi Sandbox</h1>
-          <a
-            href="/chat"
-            className="text-blue-400 hover:text-blue-300 text-sm"
-          >
-            Multi-turn Chat →
-          </a>
+          <div className="flex gap-4">
+            <a
+              href="/compare"
+              className="text-green-400 hover:text-green-300 text-sm"
+            >
+              A/B Compare →
+            </a>
+            <a
+              href="/chat"
+              className="text-blue-400 hover:text-blue-300 text-sm"
+            >
+              Multi-turn Chat →
+            </a>
+          </div>
         </div>
 
         {/* Controls Row */}

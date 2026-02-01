@@ -1,97 +1,91 @@
 # Next Steps
 
-## Phase 1: Stabilization
+## Completed
 
-**Goal:** Lock down what works. Clean commit history. No new features.
+### Phase 1: Stabilization ✅
+- [x] Confirm route.ts works (temperature=1, error handling)
+- [x] Add .gitignore entries
+- [x] Add docs (README, ARCHITECTURE, NEXT_STEPS, PROMPTS)
+- [x] Tag release v0.1.0
+- [x] Push to remote
 
-- [ ] Confirm `route.ts` matches the canonical version in this repo (temperature=1, error handling, runtime directive)
-- [ ] Remove `public/src/` if it's scaffolding noise (currently untracked)
-- [ ] Add `.gitignore` entries: `.env.local`, `.next/`, `node_modules/`, `.turbo/`
-- [ ] Verify `.env.local` is not tracked (`git ls-files --error-unmatch .env.local` should fail)
-- [ ] Add these docs to the repo: `README.md`, `ARCHITECTURE.md`, `NEXT_STEPS.md`, `PROMPTS.md`
-- [ ] Tag release: `git tag v0.1.0 -m "Working Kimi 2.5 integration"`
-- [ ] Push to remote
+### Phase 2: Abstraction ✅
+- [x] Create `lib/kimi.ts` with typed interfaces
+- [x] Create `lib/prompts.ts` for template loading
+- [x] Create `lib/tokens.ts` for usage tracking
+- [x] Simplify route.ts to use client library
 
-## Phase 2: Abstraction (`lib/kimi.ts`)
+### Phase 3: Prompt Templates ✅
+- [x] Create `prompts/` directory
+- [x] Add planner, refactor, reviewer, synthesizer, commit, test templates
+- [x] Add prompts/README.md
 
-**Goal:** Extract reusable Kimi client from the route handler.
+### Phase 4: UI Enhancements ✅
+- [x] Template selector dropdown
+- [x] Dynamic variable input fields
+- [x] Token usage display
+- [x] Streaming support with real-time output
+- [x] Reasoning content display (Kimi)
 
-Create `lib/kimi.ts`:
+### Phase 5: Response Logging ✅
+- [x] Create `lib/logger.ts`
+- [x] Log all requests to JSONL
+- [x] Add `/api/logs` endpoint for viewing
 
-```ts
-interface KimiRequest {
-  prompt: string;
-  systemPrompt?: string;
-  maxTokens?: number;
-}
+### Phase 6: Multi-turn Conversations ✅
+- [x] Update Kimi client for messages array
+- [x] Create `/chat` page with conversation history
+- [x] Collapsible reasoning per message
 
-interface KimiResponse {
-  content: string;
-  reasoningContent?: string;
-  usage: { prompt_tokens: number; completion_tokens: number; total_tokens: number };
-  raw: any;
-}
+### Phase 7: Multi-Model Support ✅
+- [x] Create `lib/openai.ts` client
+- [x] Add `/api/openai` and `/api/openai/stream` routes
+- [x] Create `/compare` page for A/B testing
+- [x] Model selector grouped by provider
 
-export async function callKimi(req: KimiRequest): Promise<KimiResponse> { ... }
-```
+---
 
-Then simplify `route.ts` to:
+## In Progress
 
-```ts
-import { callKimi } from "@/lib/kimi";
+### Model Parameter Tuning
+- [ ] Test and validate all model IDs work with APIs
+- [ ] Handle model-specific parameters (some models don't support streaming)
+- [ ] Add error handling for unsupported model features
 
-export async function POST(req: Request) {
-  const { prompt } = await req.json();
-  const result = await callKimi({ prompt });
-  return NextResponse.json(result);
-}
-```
+---
 
-Additional `lib/` utilities:
-- `lib/kimi.ts` — core client
-- `lib/prompts.ts` — template loader (reads from `prompts/` directory)
-- `lib/tokens.ts` — usage tracker (log to console or file, no DB yet)
+## Future
 
-## Phase 3: Prompt Templates
+### Retry with Exponential Backoff
+Create `lib/retry.ts`:
+- Automatic retry on rate limits (429)
+- Exponential backoff with jitter
+- Configurable max retries
 
-**Goal:** Ship reusable prompt templates optimized for Kimi's strengths and token limits.
+### Logs Viewer UI
+- Browse/search/filter logged responses
+- Compare responses visually
+- Export filtered results
 
-Create `prompts/` directory:
+### System Prompt Customization
+- Allow editing system prompt in UI
+- Save custom system prompts
 
-```
-prompts/
-├─ planner.md       ← Implementation planning
-├─ refactor.md      ← Code refactoring analysis
-├─ reviewer.md      ← Code review checklist
-├─ synthesizer.md   ← Idea comparison / brainstorming
-└─ README.md        ← How to add new templates
-```
+### Conversation Persistence
+- Save/load chat sessions
+- LocalStorage or database backend
 
-Each template is a Markdown file with `{{variable}}` placeholders. `lib/prompts.ts` loads and interpolates them at runtime.
+### Additional Providers
+- Anthropic (Claude)
+- Google (Gemini)
+- Local models (Ollama)
 
-UI enhancement: dropdown or tab selector to pick a prompt template before sending.
+### Cost Tracking
+- Estimate cost per request based on token pricing
+- Cumulative cost tracking in logs
 
-See `PROMPTS.md` for the initial template library.
-
-## Phase 4: Repo Cloning Strategy
-
-**Goal:** Make this repo the seed for every new AI project.
-
-### Clone-and-Configure Pattern
-
-```bash
-# New project from template
-cp -r kimi-sandbox/ new-project/
-cd new-project/
-rm -rf .git && git init
-# Update .env.local with project-specific keys
-# Swap system prompts as needed
-```
-
-### Shared Utilities Package (Future)
-
+### Shared Utilities Package
 Extract common code into `packages/ai-kit/`:
-
 ```
 packages/ai-kit/
 ├─ env.ts          ← Env loader + validation
@@ -101,33 +95,15 @@ packages/ai-kit/
 └─ index.ts
 ```
 
-This becomes a git submodule or local package shared across:
-- `kimi-sandbox` (this repo)
-- `mm-image-studio` (image generation/editing)
-- `pdf-rag-ingestor` (document pipeline)
-- `voice-agent-triage` (realtime voice)
-- `image-rag-feedback-analyzer` (multimodal RAG)
-- `video-to-voiceover` (frame extraction + narration)
+This becomes shareable across projects:
+- kimi-sandbox (this repo)
+- Other AI projects
 
-### Per-Repo Customization Points
+---
 
-| What changes | Where |
-|---|---|
-| API provider + model | `.env.local` + `lib/kimi.ts` (or new `lib/openai.ts`) |
-| System prompt | `prompts/*.md` |
-| Route shape | `app/api/*/route.ts` |
-| UI | `app/page.tsx` |
+## Version History
 
-Everything else (env loading, error handling, token tracking, retry logic) stays shared.
-
-## Phase 5: Multi-Model Orchestration (Stretch)
-
-**Goal:** Route prompts to different models based on task type.
-
-```
-app/api/plan/route.ts    → Kimi (cheap)
-app/api/build/route.ts   → Claude (precise)
-app/api/review/route.ts  → Codex (thorough)
-```
-
-Orchestrator pattern: a single `/api/run` endpoint that accepts `{ task, prompt }` and routes to the right model. Not needed yet — build this only when you have 2+ providers wired up.
+| Version | Date | Summary |
+|---------|------|---------|
+| v0.1.0 | 2026-02-01 | Initial Kimi integration |
+| v0.2.0 | 2026-02-01 | Templates, streaming, logging, chat, A/B compare |

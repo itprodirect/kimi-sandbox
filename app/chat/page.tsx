@@ -209,6 +209,9 @@ export default function ChatPage() {
             <a href="/" className="text-gray-400 hover:text-gray-200">
               ← Templates
             </a>
+            <a href="/compare" className="text-green-400 hover:text-green-300 text-sm">
+              A/B Compare
+            </a>
             <h1 className="text-xl font-bold">Kimi Chat</h1>
           </div>
           <div className="flex items-center gap-4">

@@ -10,6 +10,7 @@ export interface KimiRequest {
   messages?: ChatMessage[];
   systemPrompt?: string;
   maxTokens?: number;
+  model?: string;
   trackTokens?: boolean;
   stream?: boolean;
 }
@@ -40,6 +41,7 @@ export class KimiError extends Error {
 
 const DEFAULT_SYSTEM_PROMPT = "You are a senior software engineer. Be concise and practical.";
 const DEFAULT_MAX_TOKENS = 5000;
+const DEFAULT_MODEL = "kimi-k2.5";
 
 function buildMessages(req: KimiRequest): ChatMessage[] {
   // If messages array provided, use it (prepend system if not present)
@@ -70,6 +72,7 @@ export async function callKimi(req: KimiRequest): Promise<KimiResponse> {
   }
 
   const messages = buildMessages(req);
+  const model = req.model || DEFAULT_MODEL;
 
   const resp = await fetch(`${base}/chat/completions`, {
     method: "POST",
@@ -78,10 +81,10 @@ export async function callKimi(req: KimiRequest): Promise<KimiResponse> {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: "kimi-k2.5",
+      model,
       messages,
       max_tokens: req.maxTokens ?? DEFAULT_MAX_TOKENS,
-      temperature: 1, // Required by Kimi 2.5 - must be exactly 1
+      temperature: 1, // Required by Kimi - must be exactly 1
     }),
   });
 
@@ -130,6 +133,7 @@ export async function streamKimi(req: KimiRequest): Promise<Response> {
   }
 
   const messages = buildMessages(req);
+  const model = req.model || DEFAULT_MODEL;
 
   const resp = await fetch(`${base}/chat/completions`, {
     method: "POST",
@@ -138,7 +142,7 @@ export async function streamKimi(req: KimiRequest): Promise<Response> {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: "kimi-k2.5",
+      model,
       messages,
       max_tokens: req.maxTokens ?? DEFAULT_MAX_TOKENS,
       temperature: 1,

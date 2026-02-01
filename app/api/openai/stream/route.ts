@@ -1,4 +1,4 @@
-import { streamKimi, KimiError, ChatMessage } from "@/lib/kimi";
+import { streamOpenAI, OpenAIError, ChatMessage } from "@/lib/openai";
 import { logResponse } from "@/lib/logger";
 
 export const runtime = "nodejs";
@@ -18,7 +18,7 @@ export async function POST(req: Request) {
   try {
     requestData = await req.json();
     const { prompt, messages, systemPrompt, maxTokens, model, template } = requestData;
-    const response = await streamKimi({ prompt, messages, systemPrompt, maxTokens, model });
+    const response = await streamOpenAI({ prompt, messages, systemPrompt, maxTokens, model });
 
     if (!response.body) {
       return new Response(JSON.stringify({ error: "No response body" }), {
@@ -30,10 +30,9 @@ export async function POST(req: Request) {
     const reader = response.body.getReader();
     const decoder = new TextDecoder();
 
-    // Accumulate for logging
     let fullContent = "";
-    let fullReasoning = "";
     let finalUsage = { prompt_tokens: 0, completion_tokens: 0, total_tokens: 0 };
+    let modelUsed = model || "gpt-4o";
 
     const stream = new ReadableStream({
       async start(controller) {
@@ -44,20 +43,18 @@ export async function POST(req: Request) {
           while (true) {
             const { done, value } = await reader.read();
             if (done) {
-              // Log the complete response
               const durationMs = Date.now() - startTime;
               const logPrompt = messages
                 ? messages.filter((m) => m.role === "user").pop()?.content ?? ""
                 : prompt ?? "";
 
               logResponse({
-                model: "kimi-k2.5",
+                model: modelUsed,
                 template,
                 prompt: logPrompt,
                 systemPrompt,
                 maxTokens: maxTokens || 5000,
                 content: fullContent,
-                reasoningContent: fullReasoning || undefined,
                 usage: finalUsage,
                 durationMs,
               });
@@ -81,19 +78,25 @@ export async function POST(req: Request) {
                   const delta = json.choices?.[0]?.delta;
                   const usage = json.usage;
 
-                  // Accumulate content for logging
-                  if (delta?.content) fullContent += delta.content;
-                  if (delta?.reasoning_content) fullReasoning += delta.reasoning_content;
-                  if (usage) finalUsage = usage;
+                  if (json.model) {
+                    modelUsed = json.model;
+                  }
 
-                  if (delta || usage) {
-                    const event = {
-                      content: delta?.content || "",
-                      reasoning: delta?.reasoning_content || "",
-                      usage: usage || null,
+                  if (delta?.content) {
+                    fullContent += delta.content;
+                    controller.enqueue(
+                      encoder.encode(`data: ${JSON.stringify({ content: delta.content, reasoning: "", usage: null })}\n\n`)
+                    );
+                  }
+
+                  if (usage) {
+                    finalUsage = {
+                      prompt_tokens: usage.prompt_tokens || 0,
+                      completion_tokens: usage.completion_tokens || 0,
+                      total_tokens: usage.total_tokens || 0,
                     };
                     controller.enqueue(
-                      encoder.encode(`data: ${JSON.stringify(event)}\n\n`)
+                      encoder.encode(`data: ${JSON.stringify({ content: "", reasoning: "", usage: finalUsage })}\n\n`)
                     );
                   }
                 } catch {
@@ -119,7 +122,7 @@ export async function POST(req: Request) {
     const durationMs = Date.now() - startTime;
 
     logResponse({
-      model: "kimi-k2.5",
+      model: "openai",
       prompt: "",
       maxTokens: 0,
       content: "",
@@ -128,7 +131,7 @@ export async function POST(req: Request) {
       error: e instanceof Error ? e.message : "Unknown error",
     });
 
-    if (e instanceof KimiError) {
+    if (e instanceof OpenAIError) {
       return new Response(
         JSON.stringify({ error: e.message, raw: e.raw }),
         { status: e.status ?? 500, headers: { "Content-Type": "application/json" } }

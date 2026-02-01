@@ -1,90 +1,134 @@
 # Architecture
 
-## App Router Flow
+## Overview
+
+The sandbox provides a unified interface for comparing LLM outputs across providers (Kimi, OpenAI). All API traffic is server-side to protect keys.
+
+## Request Flow
 
 ```
-Browser (page.tsx)
+Browser (React UI)
   │
-  │  POST /api/kimi  { prompt: "..." }
+  │  POST /api/{provider}/stream
+  │  { prompt, messages, maxTokens, model }
   │
   ▼
-app/api/kimi/route.ts  (server-side, Node.js runtime)
+API Route (Next.js, Node.js runtime)
   │
-  │  POST https://api.moonshot.ai/v1/chat/completions
-  │  Authorization: Bearer $MOONSHOT_API_KEY
-  │
-  ▼
-Moonshot API  →  kimi-k2.5  →  response
+  │  lib/{provider}.ts
+  │  - Build messages array
+  │  - Add auth headers
   │
   ▼
-Browser receives JSON  { ok, status, data }
+Provider API
+  │
+  │  SSE stream or JSON response
+  │
+  ▼
+API Route
+  │
+  │  - Transform stream format
+  │  - Log to JSONL
+  │
+  ▼
+Browser receives streamed chunks
 ```
 
-All LLM traffic stays server-side. The client never sees or sends API keys. The route handler is the single point of contact with Moonshot.
+## Client Libraries
 
-## Why Server-Only
+### lib/kimi.ts
+- `callKimi(req)` — Non-streaming completion
+- `streamKimi(req)` — Streaming completion
+- Handles `reasoning_content` field unique to Kimi
+- Temperature locked to `1` (API requirement)
 
-- API keys stay in `process.env`, never bundled into client JS
-- Rate limiting and error handling happen in one place
-- Easy to swap providers without touching the UI
-- Moonshot's OpenAI-compatible endpoint means the fetch call is portable
+### lib/openai.ts
+- `callOpenAI(req)` — Non-streaming completion
+- `streamOpenAI(req)` — Streaming completion
+- Standard OpenAI Chat Completions format
+- `stream_options.include_usage` for token stats
 
-## Why Kimi
+### lib/logger.ts
+- `logResponse(entry)` — Append to `logs/responses.jsonl`
+- `readLogs(limit)` — Read recent entries
+- `getLogStats()` — Aggregate stats
 
-Kimi 2.5 via Moonshot is chosen for a specific role: **cheap, fast, good-enough cognition** for tasks that don't justify Claude or GPT-4 pricing.
+### lib/prompts.ts
+- `loadTemplate(name)` — Read from `prompts/*.md`
+- `interpolate(template, vars)` — Replace `{{VAR}}` placeholders
+- `listTemplates()` — List available templates
 
-**What Kimi handles well:**
-- Generating file trees and implementation plans
-- First-draft code (to be refined by stronger models)
-- Structured brainstorming and option enumeration
-- Prompt drafting and iteration
-- Code review checklists (surface-level)
-
-**What Kimi should NOT handle:**
-- Multi-file refactors requiring deep context
-- Security-sensitive code review
-- Final production code generation
-- Complex architectural decisions
-
-## Multi-Model Workflow
-
-The sandbox is one node in a three-model pipeline:
+## API Routes
 
 ```
-┌──────────────┐     ┌──────────────┐     ┌──────────────┐
-│   Kimi 2.5   │ ──▶ │  Claude Code  │ ──▶ │    Codex      │
-│  (planning)  │     │  (building)   │     │  (reviewing)  │
-└──────────────┘     └──────────────┘     └──────────────┘
-     cheap               precise              thorough
+/api/kimi              POST  Non-streaming Kimi
+/api/kimi/stream       POST  Streaming Kimi (SSE)
+/api/openai            POST  Non-streaming OpenAI
+/api/openai/stream     POST  Streaming OpenAI (SSE)
+/api/templates         GET   List templates or load by name
+/api/logs              GET   View logs, ?stats=true for aggregates
 ```
 
-**Phase 1 — Kimi (Plan)**
-Generate implementation plans, file trees, step-by-step instructions, prompt templates, and first-draft code. Cost: near zero.
+## Pages
 
-**Phase 2 — Claude Code (Build)**
-Take Kimi's plan as input. Apply multi-file diffs, resolve edge cases, run and fix failing tests. Cost: moderate, but high accuracy.
+### / (Templates)
+Single-shot prompts with template selection. Good for testing individual prompt patterns.
 
-**Phase 3 — Codex (Review)**
-Final pass: security audit, "what did we miss" checklist, simplification suggestions, code quality scoring. Cost: moderate.
+### /chat (Multi-turn)
+Conversation interface with history. Tests context retention across turns.
 
-**Feedback loop:** If Codex review surfaces issues, feed them back to Kimi for a cheap re-plan, then Claude Code for fixes. Only escalate to expensive models when Kimi's output is insufficient.
+### /compare (A/B)
+Side-by-side model comparison. Select multiple models, run same prompt in parallel.
 
-## Provider Quirks
+## Streaming Format
 
-| Constraint | Detail |
-|---|---|
-| `temperature` | Must be exactly `1` for `kimi-k2.5`. Any other value → HTTP 400. |
-| Auth | Bearer token via `MOONSHOT_API_KEY` |
-| Base URL | `https://api.moonshot.ai/v1` (OpenAI-compatible) |
-| Streaming | Supported but not yet implemented in this sandbox |
-| Rate limits | 500 RPM / 3M TPM / unlimited TPD on free tier |
+All streaming endpoints emit normalized SSE:
 
-## Future: Abstraction Layer
+```
+data: {"content":"...", "reasoning":"...", "usage":null}
+data: {"content":"", "reasoning":"", "usage":{"prompt_tokens":X, "completion_tokens":Y, "total_tokens":Z}}
+data: [DONE]
+```
 
-The current `route.ts` has inline fetch logic. Phase 2 will extract this into `lib/kimi.ts` with:
-- Typed request/response interfaces
-- Configurable system prompts
-- Token usage tracking
-- Error classification (auth vs. rate limit vs. model error)
+- `content` — Main response text delta
+- `reasoning` — Kimi's chain-of-thought delta (empty for OpenAI)
+- `usage` — Token counts (sent at end of stream)
 
-See `NEXT_STEPS.md` for the full roadmap.
+## Logging
+
+All requests are logged to `logs/responses.jsonl`:
+
+```json
+{
+  "id": "1234567890-abc123",
+  "timestamp": "2026-02-01T20:30:00.000Z",
+  "model": "kimi-k2.5",
+  "template": "planner",
+  "prompt": "...",
+  "content": "...",
+  "reasoningContent": "...",
+  "usage": {"prompt_tokens": 100, "completion_tokens": 500, "total_tokens": 600},
+  "durationMs": 3500
+}
+```
+
+## Multi-Model Strategy
+
+```
+┌──────────────┐     ┌──────────────┐
+│    Kimi      │     │   OpenAI     │
+│  (cheap)     │     │  (quality)   │
+└──────────────┘     └──────────────┘
+        │                   │
+        └─────────┬─────────┘
+                  │
+          A/B Comparison
+                  │
+                  ▼
+         Pick best for task
+```
+
+Use the `/compare` page to find the right model for each task type:
+- Kimi excels at planning, first drafts, brainstorming
+- OpenAI models better for complex reasoning, precision tasks
+- Log outputs to build evidence for model selection decisions
