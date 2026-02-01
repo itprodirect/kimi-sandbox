@@ -207,7 +207,15 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gray-950 text-gray-100 p-6">
       <div className="max-w-5xl mx-auto">
-        <h1 className="text-3xl font-bold mb-6">Kimi Sandbox</h1>
+        <div className="flex items-center justify-between mb-6">
+          <h1 className="text-3xl font-bold">Kimi Sandbox</h1>
+          <a
+            href="/chat"
+            className="text-blue-400 hover:text-blue-300 text-sm"
+          >
+            Multi-turn Chat →
+          </a>
+        </div>
 
         {/* Controls Row */}
         <div className="flex gap-4 mb-4 flex-wrap items-end">

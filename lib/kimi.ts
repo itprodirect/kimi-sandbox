@@ -1,7 +1,13 @@
 import { trackUsage } from "./tokens";
 
+export interface ChatMessage {
+  role: "system" | "user" | "assistant";
+  content: string;
+}
+
 export interface KimiRequest {
-  prompt: string;
+  prompt?: string;
+  messages?: ChatMessage[];
   systemPrompt?: string;
   maxTokens?: number;
   trackTokens?: boolean;
@@ -35,6 +41,26 @@ export class KimiError extends Error {
 const DEFAULT_SYSTEM_PROMPT = "You are a senior software engineer. Be concise and practical.";
 const DEFAULT_MAX_TOKENS = 5000;
 
+function buildMessages(req: KimiRequest): ChatMessage[] {
+  // If messages array provided, use it (prepend system if not present)
+  if (req.messages && req.messages.length > 0) {
+    const hasSystem = req.messages[0]?.role === "system";
+    if (hasSystem) {
+      return req.messages;
+    }
+    return [
+      { role: "system", content: req.systemPrompt ?? DEFAULT_SYSTEM_PROMPT },
+      ...req.messages,
+    ];
+  }
+
+  // Single prompt mode (backward compatible)
+  return [
+    { role: "system", content: req.systemPrompt ?? DEFAULT_SYSTEM_PROMPT },
+    { role: "user", content: String(req.prompt ?? "") },
+  ];
+}
+
 export async function callKimi(req: KimiRequest): Promise<KimiResponse> {
   const apiKey = process.env.MOONSHOT_API_KEY;
   const base = process.env.MOONSHOT_BASE || "https://api.moonshot.ai/v1";
@@ -42,6 +68,8 @@ export async function callKimi(req: KimiRequest): Promise<KimiResponse> {
   if (!apiKey) {
     throw new KimiError("Missing MOONSHOT_API_KEY");
   }
+
+  const messages = buildMessages(req);
 
   const resp = await fetch(`${base}/chat/completions`, {
     method: "POST",
@@ -51,10 +79,7 @@ export async function callKimi(req: KimiRequest): Promise<KimiResponse> {
     },
     body: JSON.stringify({
       model: "kimi-k2.5",
-      messages: [
-        { role: "system", content: req.systemPrompt ?? DEFAULT_SYSTEM_PROMPT },
-        { role: "user", content: String(req.prompt ?? "") },
-      ],
+      messages,
       max_tokens: req.maxTokens ?? DEFAULT_MAX_TOKENS,
       temperature: 1, // Required by Kimi 2.5 - must be exactly 1
     }),
@@ -74,8 +99,10 @@ export async function callKimi(req: KimiRequest): Promise<KimiResponse> {
   const message = choice?.message;
   const usage = data.usage ?? { prompt_tokens: 0, completion_tokens: 0, total_tokens: 0 };
 
+  // Get last user message for tracking
+  const lastUserMsg = messages.filter(m => m.role === "user").pop();
   if (req.trackTokens !== false) {
-    trackUsage(usage, req.prompt, req.systemPrompt);
+    trackUsage(usage, lastUserMsg?.content ?? "", req.systemPrompt);
   }
 
   return {
@@ -102,6 +129,8 @@ export async function streamKimi(req: KimiRequest): Promise<Response> {
     throw new KimiError("Missing MOONSHOT_API_KEY");
   }
 
+  const messages = buildMessages(req);
+
   const resp = await fetch(`${base}/chat/completions`, {
     method: "POST",
     headers: {
@@ -110,10 +139,7 @@ export async function streamKimi(req: KimiRequest): Promise<Response> {
     },
     body: JSON.stringify({
       model: "kimi-k2.5",
-      messages: [
-        { role: "system", content: req.systemPrompt ?? DEFAULT_SYSTEM_PROMPT },
-        { role: "user", content: String(req.prompt ?? "") },
-      ],
+      messages,
       max_tokens: req.maxTokens ?? DEFAULT_MAX_TOKENS,
       temperature: 1,
       stream: true,

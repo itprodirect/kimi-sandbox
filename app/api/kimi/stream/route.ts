@@ -1,4 +1,4 @@
-import { streamKimi, KimiError } from "@/lib/kimi";
+import { streamKimi, KimiError, ChatMessage } from "@/lib/kimi";
 import { logResponse } from "@/lib/logger";
 
 export const runtime = "nodejs";
@@ -6,9 +6,18 @@ export const runtime = "nodejs";
 export async function POST(req: Request) {
   const startTime = Date.now();
 
+  let requestData: {
+    prompt?: string;
+    messages?: ChatMessage[];
+    systemPrompt?: string;
+    maxTokens?: number;
+    template?: string;
+  } = {};
+
   try {
-    const { prompt, systemPrompt, maxTokens, template } = await req.json();
-    const response = await streamKimi({ prompt, systemPrompt, maxTokens });
+    requestData = await req.json();
+    const { prompt, messages, systemPrompt, maxTokens, template } = requestData;
+    const response = await streamKimi({ prompt, messages, systemPrompt, maxTokens });
 
     if (!response.body) {
       return new Response(JSON.stringify({ error: "No response body" }), {
@@ -36,10 +45,14 @@ export async function POST(req: Request) {
             if (done) {
               // Log the complete response
               const durationMs = Date.now() - startTime;
+              const logPrompt = messages
+                ? messages.filter((m) => m.role === "user").pop()?.content ?? ""
+                : prompt ?? "";
+
               logResponse({
                 model: "kimi-k2.5",
                 template,
-                prompt,
+                prompt: logPrompt,
                 systemPrompt,
                 maxTokens: maxTokens || 5000,
                 content: fullContent,
@@ -104,7 +117,6 @@ export async function POST(req: Request) {
   } catch (e) {
     const durationMs = Date.now() - startTime;
 
-    // Log error
     logResponse({
       model: "kimi-k2.5",
       prompt: "",
