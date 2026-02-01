@@ -1,0 +1,86 @@
+import { trackUsage } from "./tokens";
+
+export interface KimiRequest {
+  prompt: string;
+  systemPrompt?: string;
+  maxTokens?: number;
+  trackTokens?: boolean;
+}
+
+export interface KimiUsage {
+  prompt_tokens: number;
+  completion_tokens: number;
+  total_tokens: number;
+}
+
+export interface KimiResponse {
+  content: string;
+  reasoningContent?: string;
+  usage: KimiUsage;
+  raw: unknown;
+}
+
+export class KimiError extends Error {
+  constructor(
+    message: string,
+    public status?: number,
+    public raw?: unknown
+  ) {
+    super(message);
+    this.name = "KimiError";
+  }
+}
+
+const DEFAULT_SYSTEM_PROMPT = "You are a senior software engineer. Be concise and practical.";
+const DEFAULT_MAX_TOKENS = 500;
+
+export async function callKimi(req: KimiRequest): Promise<KimiResponse> {
+  const apiKey = process.env.MOONSHOT_API_KEY;
+  const base = process.env.MOONSHOT_BASE || "https://api.moonshot.ai/v1";
+
+  if (!apiKey) {
+    throw new KimiError("Missing MOONSHOT_API_KEY");
+  }
+
+  const resp = await fetch(`${base}/chat/completions`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      model: "kimi-k2.5",
+      messages: [
+        { role: "system", content: req.systemPrompt ?? DEFAULT_SYSTEM_PROMPT },
+        { role: "user", content: String(req.prompt ?? "") },
+      ],
+      max_tokens: req.maxTokens ?? DEFAULT_MAX_TOKENS,
+      temperature: 1, // Required by Kimi 2.5 - must be exactly 1
+    }),
+  });
+
+  const data = await resp.json();
+
+  if (!resp.ok) {
+    throw new KimiError(
+      data?.error?.message ?? `Kimi API error: ${resp.status}`,
+      resp.status,
+      data
+    );
+  }
+
+  const choice = data.choices?.[0];
+  const message = choice?.message;
+  const usage = data.usage ?? { prompt_tokens: 0, completion_tokens: 0, total_tokens: 0 };
+
+  if (req.trackTokens !== false) {
+    trackUsage(usage, req.prompt, req.systemPrompt);
+  }
+
+  return {
+    content: message?.content ?? "",
+    reasoningContent: message?.reasoning_content,
+    usage,
+    raw: data,
+  };
+}
