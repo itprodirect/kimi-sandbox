@@ -88,7 +88,7 @@ export default function Home() {
       const r = await fetch("/api/kimi/stream", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt, maxTokens }),
+        body: JSON.stringify({ prompt, maxTokens, template: selectedTemplate || undefined }),
         signal: abortControllerRef.current.signal,
       });
 
@@ -169,7 +169,7 @@ export default function Home() {
       const r = await fetch("/api/kimi", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt, maxTokens }),
+        body: JSON.stringify({ prompt, maxTokens, template: selectedTemplate || undefined }),
       });
       const data = await r.json();
       setResponse(data);
