@@ -1,0 +1,15 @@
+
+Evaluation repo links
+
+https://github.com/itprodirect/rr-eval-review-bot
+https://github.com/itprodirect/rr-eval-pr-manager
+https://github.com/itprodirect/rr-eval-style-checker
+https://github.com/itprodirect/rr-eval-support-desk
+https://github.com/itprodirect/rr-eval-issue-handler
+https://github.com/itprodirect/rr-eval-readme-drafter
+https://github.com/itprodirect/rr-eval-csv-normalizer
+https://github.com/itprodirect/rr-eval-task-flow
+
+
+RepoRubric application link (testing tool)
+https://github.com/itprodirect/repo-rubric

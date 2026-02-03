@@ -1,15 +1,15 @@
-# Kimi Sandbox
+﻿# Kimi Sandbox
 
-A Next.js sandbox for **multi-model LLM comparison** with Moonshot's Kimi and OpenAI models. Designed as a reusable foundation for testing, comparing, and evaluating LLM outputs across providers.
+A Next.js sandbox for multi-model LLM comparison with Moonshot Kimi and OpenAI models. Designed as a reusable foundation for testing, comparing, and evaluating LLM outputs across providers.
 
 ## Features
 
-- **A/B Model Comparison** — Run the same prompt through multiple models side-by-side
-- **Multi-turn Chat** — Conversation history with context retention testing
-- **Prompt Templates** — 6 reusable templates for common tasks
-- **Streaming Responses** — Real-time output with reasoning display (Kimi)
-- **Response Logging** — All responses logged to JSONL for analysis
-- **Token Tracking** — Usage stats per request and cumulative
+- **A/B Model Comparison** - Run the same prompt through multiple models side-by-side
+- **Multi-turn Chat** - Conversation history with context retention testing
+- **Prompt Templates** - 6 reusable templates for common tasks
+- **Streaming Responses** - Real-time output with reasoning display (Kimi)
+- **Response Logging** - All responses logged to JSONL for analysis
+- **Token Tracking** - Usage stats per request and cumulative
 
 ## Stack
 
@@ -87,28 +87,45 @@ Open http://localhost:3000
 | `commit` | Conventional commit messages |
 | `test` | Test case scaffolds |
 
+## Docs And Benchmarks
+
+- `docs/ARCHITECTURE.md` - Architecture overview
+- `docs/NEXT_STEPS.md` - Roadmap and milestones
+- `docs/PROMPTS.md` - Prompt template guidelines
+- `docs/benchmarks/` - Benchmark inputs and repo lists
+- `docs/sessions/` - Session logs for agentic work
+- `reports/rr-eval/` - Raw benchmark reports and manifest
+
 ## Project Structure
 
 ```
 kimi-sandbox/
-├─ app/
-│  ├─ api/
-│  │  ├─ kimi/          ← Kimi API routes
-│  │  ├─ openai/        ← OpenAI API routes
-│  │  ├─ templates/     ← Template loader
-│  │  └─ logs/          ← Log viewer
-│  ├─ chat/             ← Multi-turn chat page
-│  ├─ compare/          ← A/B comparison page
-│  └─ page.tsx          ← Template UI
-├─ lib/
-│  ├─ kimi.ts           ← Kimi client
-│  ├─ openai.ts         ← OpenAI client
-│  ├─ logger.ts         ← Response logging
-│  ├─ prompts.ts        ← Template loader
-│  └─ tokens.ts         ← Usage tracking
-├─ prompts/             ← Markdown templates
-├─ logs/                ← Response logs (gitignored)
-└─ .env.local           ← API keys (gitignored)
+|-- app/
+|   |-- api/
+|   |   |-- kimi/          <- Kimi API routes
+|   |   |-- openai/        <- OpenAI API routes
+|   |   |-- templates/     <- Template loader
+|   |   `-- logs/          <- Log viewer
+|   |-- chat/              <- Multi-turn chat page
+|   |-- compare/           <- A/B comparison page
+|   `-- page.tsx           <- Template UI
+|-- docs/
+|   |-- benchmarks/
+|   |-- sessions/
+|   |-- ARCHITECTURE.md
+|   |-- NEXT_STEPS.md
+|   `-- PROMPTS.md
+|-- lib/
+|   |-- kimi.ts            <- Kimi client
+|   |-- openai.ts          <- OpenAI client
+|   |-- logger.ts          <- Response logging
+|   |-- prompts.ts         <- Template loader
+|   `-- tokens.ts          <- Usage tracking
+|-- prompts/               <- Markdown templates
+|-- reports/
+|   `-- rr-eval/            <- RepoRubric benchmark reports
+|-- logs/                  <- Response logs (gitignored)
+`-- .env.local             <- API keys (gitignored)
 ```
 
 ## Provider Notes
@@ -124,4 +141,4 @@ kimi-sandbox/
 
 ## License
 
-Private — internal use only.
+Private - internal use only.

@@ -1,0 +1,465 @@
+{
+  "id": "8b64b995-515d-410f-be00-6590fdb2b965",
+  "repoUrl": "https://github.com/itprodirect/rr-eval-csv-normalizer",
+  "owner": "itprodirect",
+  "name": "rr-eval-csv-normalizer",
+  "defaultBranch": "master",
+  "commitSha": "6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7",
+  "selectedPaths": [
+    "README.md",
+    "requirements.txt",
+    "config/mappings.json",
+    "config/schema.json",
+    "tests/test_validate.py",
+    "tests/test_normalize.py",
+    "Makefile",
+    "src/__init__.py",
+    "tests/__init__.py",
+    "src/report.py",
+    "data/sample_output.json",
+    "src/validate.py",
+    "src/pipeline.py",
+    "src/normalize.py"
+  ],
+  "fileDigests": [
+    {
+      "path": "README.md",
+      "sha": "6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7",
+      "size": 4164,
+      "lineCount": 184,
+      "chunks": 1
+    },
+    {
+      "path": "requirements.txt",
+      "sha": "6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7",
+      "size": 12,
+      "lineCount": 2,
+      "chunks": 1
+    },
+    {
+      "path": "config/mappings.json",
+      "sha": "6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7",
+      "size": 923,
+      "lineCount": 42,
+      "chunks": 1
+    },
+    {
+      "path": "config/schema.json",
+      "sha": "6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7",
+      "size": 1355,
+      "lineCount": 65,
+      "chunks": 1
+    },
+    {
+      "path": "tests/test_validate.py",
+      "sha": "6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7",
+      "size": 5718,
+      "lineCount": 170,
+      "chunks": 1
+    },
+    {
+      "path": "tests/test_normalize.py",
+      "sha": "6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7",
+      "size": 6564,
+      "lineCount": 200,
+      "chunks": 1
+    },
+    {
+      "path": "Makefile",
+      "sha": "6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7",
+      "size": 226,
+      "lineCount": 11,
+      "chunks": 1
+    },
+    {
+      "path": "src/__init__.py",
+      "sha": "6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7",
+      "size": 1,
+      "lineCount": 2,
+      "chunks": 1
+    },
+    {
+      "path": "tests/__init__.py",
+      "sha": "6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7",
+      "size": 1,
+      "lineCount": 2,
+      "chunks": 1
+    },
+    {
+      "path": "src/report.py",
+      "sha": "6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7",
+      "size": 1260,
+      "lineCount": 37,
+      "chunks": 1
+    },
+    {
+      "path": "data/sample_output.json",
+      "sha": "6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7",
+      "size": 1421,
+      "lineCount": 57,
+      "chunks": 1
+    },
+    {
+      "path": "src/validate.py",
+      "sha": "6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7",
+      "size": 2899,
+      "lineCount": 96,
+      "chunks": 1
+    },
+    {
+      "path": "src/pipeline.py",
+      "sha": "6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7",
+      "size": 4484,
+      "lineCount": 130,
+      "chunks": 1
+    },
+    {
+      "path": "src/normalize.py",
+      "sha": "6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7",
+      "size": 4777,
+      "lineCount": 145,
+      "chunks": 1
+    }
+  ],
+  "rubric": {
+    "meta": {
+      "repo_url": "https://github.com/itprodirect/rr-eval-csv-normalizer",
+      "owner": "itprodirect",
+      "repo": "rr-eval-csv-normalizer",
+      "commit_sha": "6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7",
+      "default_branch": "master",
+      "detected_stack": [
+        "python"
+      ],
+      "analyzed_paths": [
+        "README.md",
+        "requirements.txt",
+        "config/mappings.json",
+        "config/schema.json",
+        "tests/test_validate.py",
+        "tests/test_normalize.py",
+        "Makefile",
+        "src/__init__.py",
+        "tests/__init__.py",
+        "src/report.py",
+        "data/sample_output.json",
+        "src/validate.py",
+        "src/pipeline.py",
+        "src/normalize.py"
+      ],
+      "content_caps": {
+        "max_files": 25,
+        "max_total_chars": 250000,
+        "truncated": false
+      }
+    },
+    "classification": "A_NOT_AGENTIC",
+    "scores": {
+      "variability": 2,
+      "strategic_importance": 4,
+      "operational_impact": 4,
+      "integration_readiness": 5,
+      "blast_radius_risk": 2,
+      "confidence": 0.97
+    },
+    "outcomes": {
+      "enterprise_outcome": "Standardized, validated, and normalized transaction data for downstream analytics and reporting.",
+      "workflow_outcome": "Automated batch processing of CSV files into clean, schema-compliant JSON with error reporting and quarantining of invalid records.",
+      "kpis": {
+        "efficiency": [
+          "Average processing time per file (seconds)",
+          "Number of files processed per batch run"
+        ],
+        "quality": [
+          "Percentage of valid rows per batch",
+          "Number of quarantined rows per batch",
+          "Schema validation error rate"
+        ],
+        "business_impact": [
+          "Reduction in manual data cleaning hours",
+          "Increase in usable transaction records for analytics"
+        ],
+        "risk_compliance": [
+          "Error rate threshold not exceeded in production runs",
+          "All output conforms to defined schema"
+        ]
+      }
+    },
+    "tasks": [
+      {
+        "task_id": "normalize_csv_rows",
+        "name": "Normalize CSV Rows",
+        "current_actor": "Automated Python script",
+        "inputs": [
+          "Raw CSV files",
+          "Field mapping configuration"
+        ],
+        "outputs": [
+          "Normalized row dictionaries"
+        ],
+        "scores": {
+          "variability": 2,
+          "criticality": 4,
+          "risk": 2
+        },
+        "recommendation": "RULES_AUTOMATION",
+        "rationale": "Normalization logic is deterministic, rules-based, and driven by static configuration. No LLM or agentic patterns are present in code.",
+        "citations": [
+          "CIT-e8d381e6",
+          "CIT-657a907b"
+        ]
+      },
+      {
+        "task_id": "validate_rows",
+        "name": "Validate Rows Against Schema",
+        "current_actor": "Automated Python script",
+        "inputs": [
+          "Normalized row dictionaries",
+          "Schema configuration"
+        ],
+        "outputs": [
+          "Validation results",
+          "Error messages"
+        ],
+        "scores": {
+          "variability": 2,
+          "criticality": 4,
+          "risk": 2
+        },
+        "recommendation": "RULES_AUTOMATION",
+        "rationale": "Validation is performed using static schema rules (regex, enums, required fields) with no AI or LLM involvement.",
+        "citations": [
+          "CIT-95f3e152",
+          "CIT-e96961c9"
+        ]
+      },
+      {
+        "task_id": "quarantine_invalid_rows",
+        "name": "Quarantine Invalid Rows",
+        "current_actor": "Automated Python script",
+        "inputs": [
+          "Validation results"
+        ],
+        "outputs": [
+          "Quarantined rows",
+          "Clean output rows"
+        ],
+        "scores": {
+          "variability": 1,
+          "criticality": 3,
+          "risk": 2
+        },
+        "recommendation": "RULES_AUTOMATION",
+        "rationale": "Quarantine logic is based on error rate thresholds and deterministic rules, not requiring AI or agentic decision-making.",
+        "citations": [
+          "CIT-95f3e152",
+          "CIT-657a907b"
+        ]
+      },
+      {
+        "task_id": "generate_report",
+        "name": "Generate Processing Report",
+        "current_actor": "Automated Python script",
+        "inputs": [
+          "File processing results"
+        ],
+        "outputs": [
+          "JSON summary report"
+        ],
+        "scores": {
+          "variability": 1,
+          "criticality": 3,
+          "risk": 1
+        },
+        "recommendation": "RULES_AUTOMATION",
+        "rationale": "Report generation is a deterministic aggregation of batch results, with no AI or agentic logic.",
+        "citations": [
+          "CIT-8ad423d6"
+        ]
+      }
+    ],
+    "execution_modes": [
+      {
+        "task_id": "normalize_csv_rows",
+        "mode": "STATIC",
+        "why": "Normalization is performed using predefined rules and mappings, with no adaptive or collaborative logic.",
+        "constraints": [
+          "All mappings and rules must be defined in configuration files.",
+          "No dynamic or AI-driven adaptation."
+        ],
+        "citations": [
+          "CIT-e8d381e6",
+          "CIT-c6379edb"
+        ]
+      },
+      {
+        "task_id": "validate_rows",
+        "mode": "STATIC",
+        "why": "Validation is schema-driven and deterministic, with no adaptive or collaborative logic.",
+        "constraints": [
+          "Schema must be defined in advance.",
+          "No dynamic or AI-driven validation."
+        ],
+        "citations": [
+          "CIT-95f3e152",
+          "CIT-e96961c9"
+        ]
+      },
+      {
+        "task_id": "quarantine_invalid_rows",
+        "mode": "STATIC",
+        "why": "Quarantine logic is based on static error rate thresholds and deterministic rules.",
+        "constraints": [
+          "Error rate threshold must be set in configuration.",
+          "No adaptive quarantine logic."
+        ],
+        "citations": [
+          "CIT-95f3e152"
+        ]
+      },
+      {
+        "task_id": "generate_report",
+        "mode": "STATIC",
+        "why": "Report generation is a deterministic aggregation of results.",
+        "constraints": [
+          "Report format and aggregation logic are fixed.",
+          "No adaptive or AI-driven reporting."
+        ],
+        "citations": [
+          "CIT-8ad423d6"
+        ]
+      }
+    ],
+    "guardrails": {
+      "strategic": [
+        "Ensure all data processing is schema-driven and auditable.",
+        "Maintain strict separation between configuration and code logic."
+      ],
+      "operational": [
+        "Quarantine all rows failing validation; do not include in output.",
+        "Enforce error rate thresholds to prevent bad data from propagating.",
+        "Log all validation and normalization errors for audit."
+      ],
+      "implementation": [
+        "Require all configuration files (schema, mappings) to be version-controlled.",
+        "Automate regression testing for all normalization and validation logic.",
+        "Restrict write access to output and report directories to prevent data leakage."
+      ]
+    },
+    "pilot": {
+      "recommended_first_task_id": "generate_report",
+      "baseline": [
+        "Current manual or semi-automated reporting process time",
+        "Number of errors detected in previous batch runs"
+      ],
+      "success_thresholds": [
+        "100% of processed files generate a summary report",
+        "Report accuracy matches ground truth for at least 99% of files"
+      ],
+      "sandbox_plan": [
+        "Run the pipeline on a non-production dataset",
+        "Compare generated reports to manually validated results",
+        "Iterate on configuration without impacting production data"
+      ],
+      "rollback_plan": [
+        "Revert to previous reporting scripts if errors exceed threshold",
+        "Retain all original input and output files for audit"
+      ],
+      "monitoring": [
+        "Track report generation success/failure in CI logs",
+        "Alert on report generation errors or missing files"
+      ]
+    },
+    "risks": {
+      "key_risks": [
+        "Schema or mapping misconfiguration could lead to invalid normalization or validation.",
+        "Edge cases in input data may not be covered by static rules, leading to false negatives/positives.",
+        "Automated quarantine may hide systemic data quality issues if not monitored."
+      ],
+      "unknowns": [
+        "Volume and variability of real-world input data.",
+        "Frequency of schema/mapping updates required to keep pace with business changes."
+      ],
+      "assumptions": [
+        "No AI, LLM, or agentic logic is present in the codebase; all automation is rules-based.",
+        "All features described in the README are implemented via deterministic code, not AI.",
+        "README claims about 'automation' refer to rules-based, not AI-powered, automation."
+      ]
+    },
+    "citations": [
+      {
+        "id": "CIT-30af0535",
+        "path": "README.md",
+        "commit_sha": "6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7",
+        "line_start": 1,
+        "line_end": 184,
+        "url": "https://github.com/itprodirect/rr-eval-csv-normalizer/blob/6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7/README.md#L1-L184",
+        "note": "Project overview, workflow, and automation claims."
+      },
+      {
+        "id": "CIT-bf122b47",
+        "path": "requirements.txt",
+        "commit_sha": "6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7",
+        "line_start": 1,
+        "line_end": 2,
+        "url": "https://github.com/itprodirect/rr-eval-csv-normalizer/blob/6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7/requirements.txt#L1-L2",
+        "note": "Dependency list; no AI/LLM libraries present."
+      },
+      {
+        "id": "CIT-e8d381e6",
+        "path": "src/normalize.py",
+        "commit_sha": "6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7",
+        "line_start": 1,
+        "line_end": 145,
+        "url": "https://github.com/itprodirect/rr-eval-csv-normalizer/blob/6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7/src/normalize.py#L1-L145",
+        "note": "Normalization logic is deterministic and rules-based."
+      },
+      {
+        "id": "CIT-657a907b",
+        "path": "src/pipeline.py",
+        "commit_sha": "6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7",
+        "line_start": 1,
+        "line_end": 130,
+        "url": "https://github.com/itprodirect/rr-eval-csv-normalizer/blob/6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7/src/pipeline.py#L1-L130",
+        "note": "Main pipeline orchestration; no AI or agentic patterns."
+      },
+      {
+        "id": "CIT-95f3e152",
+        "path": "src/validate.py",
+        "commit_sha": "6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7",
+        "line_start": 1,
+        "line_end": 96,
+        "url": "https://github.com/itprodirect/rr-eval-csv-normalizer/blob/6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7/src/validate.py#L1-L96",
+        "note": "Validation logic is schema-driven and deterministic."
+      },
+      {
+        "id": "CIT-8ad423d6",
+        "path": "src/report.py",
+        "commit_sha": "6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7",
+        "line_start": 1,
+        "line_end": 37,
+        "url": "https://github.com/itprodirect/rr-eval-csv-normalizer/blob/6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7/src/report.py#L1-L37",
+        "note": "Report generation logic is deterministic."
+      },
+      {
+        "id": "CIT-c6379edb",
+        "path": "config/mappings.json",
+        "commit_sha": "6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7",
+        "line_start": 1,
+        "line_end": 42,
+        "url": "https://github.com/itprodirect/rr-eval-csv-normalizer/blob/6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7/config/mappings.json#L1-L42",
+        "note": "Mappings for normalization; static configuration."
+      },
+      {
+        "id": "CIT-e96961c9",
+        "path": "config/schema.json",
+        "commit_sha": "6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7",
+        "line_start": 1,
+        "line_end": 65,
+        "url": "https://github.com/itprodirect/rr-eval-csv-normalizer/blob/6a311967a915ecf78cbdd0fbf0c47852c8c4dbe7/config/schema.json#L1-L65",
+        "note": "Schema for validation; static configuration."
+      }
+    ]
+  },
+  "createdAt": "2026-02-03T01:04:40.071Z"
+}

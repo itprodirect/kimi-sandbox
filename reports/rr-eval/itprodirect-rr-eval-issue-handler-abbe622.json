@@ -1,0 +1,505 @@
+{
+  "id": "e6baa064-af05-4466-8208-a301ef08cdc9",
+  "repoUrl": "https://github.com/itprodirect/rr-eval-issue-handler",
+  "owner": "itprodirect",
+  "name": "rr-eval-issue-handler",
+  "defaultBranch": "main",
+  "commitSha": "abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd",
+  "selectedPaths": [
+    "README.md",
+    ".github/workflows/on_issue.yml",
+    "tsconfig.json",
+    "package.json",
+    "src/index.ts",
+    "config/labels.json",
+    "jest.config.js",
+    "tests/classifier.test.ts",
+    "tests/guardrails.test.ts",
+    "config/settings.yaml",
+    "src/labeler.ts",
+    "src/logger.ts",
+    "src/responder.ts",
+    "src/guardrails.ts",
+    "src/classifier.ts"
+  ],
+  "fileDigests": [
+    {
+      "path": "README.md",
+      "sha": "abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd",
+      "size": 1356,
+      "lineCount": 53,
+      "chunks": 1
+    },
+    {
+      "path": ".github/workflows/on_issue.yml",
+      "sha": "abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd",
+      "size": 896,
+      "lineCount": 38,
+      "chunks": 1
+    },
+    {
+      "path": "tsconfig.json",
+      "sha": "abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd",
+      "size": 260,
+      "lineCount": 14,
+      "chunks": 1
+    },
+    {
+      "path": "package.json",
+      "sha": "abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd",
+      "size": 466,
+      "lineCount": 23,
+      "chunks": 1
+    },
+    {
+      "path": "src/index.ts",
+      "sha": "abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd",
+      "size": 2990,
+      "lineCount": 101,
+      "chunks": 1
+    },
+    {
+      "path": "config/labels.json",
+      "sha": "abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd",
+      "size": 422,
+      "lineCount": 11,
+      "chunks": 1
+    },
+    {
+      "path": "jest.config.js",
+      "sha": "abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd",
+      "size": 266,
+      "lineCount": 12,
+      "chunks": 1
+    },
+    {
+      "path": "tests/classifier.test.ts",
+      "sha": "abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd",
+      "size": 790,
+      "lineCount": 24,
+      "chunks": 1
+    },
+    {
+      "path": "tests/guardrails.test.ts",
+      "sha": "abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd",
+      "size": 1686,
+      "lineCount": 54,
+      "chunks": 1
+    },
+    {
+      "path": "config/settings.yaml",
+      "sha": "abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd",
+      "size": 511,
+      "lineCount": 27,
+      "chunks": 1
+    },
+    {
+      "path": "src/labeler.ts",
+      "sha": "abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd",
+      "size": 802,
+      "lineCount": 43,
+      "chunks": 1
+    },
+    {
+      "path": "src/logger.ts",
+      "sha": "abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd",
+      "size": 1099,
+      "lineCount": 40,
+      "chunks": 1
+    },
+    {
+      "path": "src/responder.ts",
+      "sha": "abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd",
+      "size": 1505,
+      "lineCount": 49,
+      "chunks": 1
+    },
+    {
+      "path": "src/guardrails.ts",
+      "sha": "abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd",
+      "size": 1772,
+      "lineCount": 63,
+      "chunks": 1
+    },
+    {
+      "path": "src/classifier.ts",
+      "sha": "abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd",
+      "size": 2862,
+      "lineCount": 90,
+      "chunks": 1
+    }
+  ],
+  "rubric": {
+    "meta": {
+      "repo_url": "https://github.com/itprodirect/rr-eval-issue-handler",
+      "owner": "itprodirect",
+      "repo": "rr-eval-issue-handler",
+      "commit_sha": "abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd",
+      "default_branch": "main",
+      "detected_stack": [
+        "react",
+        "typescript"
+      ],
+      "analyzed_paths": [
+        "README.md",
+        ".github/workflows/on_issue.yml",
+        "tsconfig.json",
+        "package.json",
+        "src/index.ts",
+        "config/labels.json",
+        "jest.config.js",
+        "tests/classifier.test.ts",
+        "tests/guardrails.test.ts",
+        "config/settings.yaml",
+        "src/labeler.ts",
+        "src/logger.ts",
+        "src/responder.ts",
+        "src/guardrails.ts",
+        "src/classifier.ts"
+      ],
+      "content_caps": {
+        "max_files": 25,
+        "max_total_chars": 250000,
+        "truncated": false
+      }
+    },
+    "classification": "B_LLM_ASSIST",
+    "scores": {
+      "variability": 3,
+      "strategic_importance": 4,
+      "operational_impact": 4,
+      "integration_readiness": 4,
+      "blast_radius_risk": 2,
+      "confidence": 0.92
+    },
+    "outcomes": {
+      "enterprise_outcome": "Accelerate and standardize GitHub issue triage, reducing manual effort and improving response consistency.",
+      "workflow_outcome": "Automated classification, labeling, and draft response generation for new GitHub issues, with human-in-the-loop approval for public responses.",
+      "kpis": {
+        "efficiency": [
+          "Mean time to triage issue (hours)",
+          "Number of issues triaged per week",
+          "Reduction in manual labeling actions"
+        ],
+        "quality": [
+          "Classification accuracy (LLM vs. human review)",
+          "Labeling error rate",
+          "Response draft acceptance rate"
+        ],
+        "business_impact": [
+          "Maintainer time saved (hours/month)",
+          "Faster response time to new issues",
+          "Improved contributor satisfaction (survey score)"
+        ],
+        "risk_compliance": [
+          "Incidents of unauthorized label application",
+          "Incidents of inappropriate automated responses",
+          "Audit log completeness rate"
+        ]
+      }
+    },
+    "tasks": [
+      {
+        "task_id": "T1",
+        "name": "Classify new GitHub issues by type and priority",
+        "current_actor": "Maintainer",
+        "inputs": [
+          "Issue title",
+          "Issue body"
+        ],
+        "outputs": [
+          "Classification result (type, priority)",
+          "Classification confidence"
+        ],
+        "scores": {
+          "variability": 3,
+          "criticality": 4,
+          "risk": 2
+        },
+        "recommendation": "LLM_ASSIST",
+        "rationale": "Classification is performed using Anthropic's Claude model via the @anthropic-ai/sdk, with fallback to rules-based heuristics. Output is used to assist maintainers, not to take irreversible actions autonomously.",
+        "citations": [
+          "CIT-534025f8",
+          "CIT-4ccda3fd",
+          "CIT-46980674"
+        ]
+      },
+      {
+        "task_id": "T2",
+        "name": "Apply validated labels to issues",
+        "current_actor": "Maintainer",
+        "inputs": [
+          "Classification result",
+          "Allowed labels config"
+        ],
+        "outputs": [
+          "Labels applied to issue"
+        ],
+        "scores": {
+          "variability": 2,
+          "criticality": 3,
+          "risk": 2
+        },
+        "recommendation": "RULES_AUTOMATION",
+        "rationale": "Label application is strictly bounded by allowed labels and guardrails; no LLM autonomy is used for this step.",
+        "citations": [
+          "CIT-1735d44f",
+          "CIT-142dc5f3",
+          "CIT-17eb6d76",
+          "CIT-4ccda3fd"
+        ]
+      },
+      {
+        "task_id": "T3",
+        "name": "Draft response comments for issues",
+        "current_actor": "Maintainer",
+        "inputs": [
+          "Issue title",
+          "Issue body",
+          "Classification result"
+        ],
+        "outputs": [
+          "Draft response text"
+        ],
+        "scores": {
+          "variability": 3,
+          "criticality": 3,
+          "risk": 2
+        },
+        "recommendation": "LLM_ASSIST",
+        "rationale": "LLM is used to generate draft responses, but these are never posted automatically; human review is required before posting.",
+        "citations": [
+          "CIT-dcb2550e",
+          "CIT-4ccda3fd",
+          "CIT-46980674"
+        ]
+      },
+      {
+        "task_id": "T4",
+        "name": "Log and audit all classification and labeling decisions",
+        "current_actor": "Automation",
+        "inputs": [
+          "Classification result",
+          "Labels applied",
+          "Draft response"
+        ],
+        "outputs": [
+          "Decision log file"
+        ],
+        "scores": {
+          "variability": 1,
+          "criticality": 4,
+          "risk": 1
+        },
+        "recommendation": "RULES_AUTOMATION",
+        "rationale": "Logging is deterministic and rules-based, ensuring traceability and auditability.",
+        "citations": [
+          "CIT-aae2311e",
+          "CIT-4ccda3fd",
+          "CIT-46980674"
+        ]
+      }
+    ],
+    "execution_modes": [
+      {
+        "task_id": "T1",
+        "mode": "COLLABORATIVE",
+        "why": "LLM provides classification and confidence, but human maintainers can override or review results if confidence is low or edge cases arise.",
+        "constraints": [
+          "Classification confidence threshold enforced",
+          "Fallback to rules-based classification if LLM fails"
+        ],
+        "citations": [
+          "CIT-534025f8",
+          "CIT-46980674"
+        ]
+      },
+      {
+        "task_id": "T2",
+        "mode": "STATIC",
+        "why": "Label application is strictly governed by static configuration and guardrails; no adaptive or LLM-driven logic.",
+        "constraints": [
+          "Only allowed labels from config/labels.json can be applied",
+          "Maximum label count enforced"
+        ],
+        "citations": [
+          "CIT-1735d44f",
+          "CIT-17eb6d76",
+          "CIT-142dc5f3"
+        ]
+      },
+      {
+        "task_id": "T3",
+        "mode": "COLLABORATIVE",
+        "why": "LLM drafts responses, but human review is required before posting to ensure appropriateness and context sensitivity.",
+        "constraints": [
+          "Drafts are never posted automatically",
+          "Human approval required for all public responses"
+        ],
+        "citations": [
+          "CIT-dcb2550e",
+          "CIT-4ccda3fd",
+          "CIT-46980674"
+        ]
+      },
+      {
+        "task_id": "T4",
+        "mode": "STATIC",
+        "why": "Logging is deterministic and does not adapt based on input; it simply records actions and decisions.",
+        "constraints": [
+          "Logs must be saved for every issue event",
+          "Logs must include classification, labels, and response"
+        ],
+        "citations": [
+          "CIT-aae2311e",
+          "CIT-4ccda3fd"
+        ]
+      }
+    ],
+    "guardrails": {
+      "strategic": [
+        "No automated posting of public comments; all LLM outputs require human approval",
+        "No autonomous issue closing, assignment, or editing"
+      ],
+      "operational": [
+        "Only allowed labels from configuration can be applied",
+        "Maximum number of labels per issue enforced",
+        "Fallback to rules-based classification if LLM confidence is low or API fails",
+        "All decisions logged for auditability"
+      ],
+      "implementation": [
+        "Enforce permission checks before any action (src/guardrails.ts)",
+        "Require human review for all LLM-generated responses (src/responder.ts)",
+        "Save decision logs as artifacts for every issue event (src/logger.ts, .github/workflows/on_issue.yml)"
+      ]
+    },
+    "pilot": {
+      "recommended_first_task_id": "T1",
+      "baseline": [
+        "Collect data on current manual triage time per issue",
+        "Measure current classification accuracy and label consistency"
+      ],
+      "success_thresholds": [
+        "Reduce mean triage time by 30% within 4 weeks",
+        "Achieve >85% classification accuracy (LLM vs. human review)",
+        "No incidents of unauthorized label application or inappropriate draft responses"
+      ],
+      "sandbox_plan": [
+        "Deploy bot on a test repository with real but non-critical issues",
+        "Enable logging and artifact upload for all actions",
+        "Require explicit human approval for all LLM-generated outputs"
+      ],
+      "rollback_plan": [
+        "Disable workflow in .github/workflows/on_issue.yml",
+        "Revert to manual triage process",
+        "Purge any labels or comments applied by the bot"
+      ],
+      "monitoring": [
+        "Monitor decision logs for errors or low-confidence classifications",
+        "Alert maintainers if three low-confidence decisions occur in a row",
+        "Regularly review audit logs for compliance"
+      ]
+    },
+    "risks": {
+      "key_risks": [
+        "LLM may misclassify ambiguous issues, leading to incorrect labeling",
+        "Draft responses may contain inappropriate or off-brand language if not reviewed",
+        "API failures or misconfiguration could result in incomplete triage"
+      ],
+      "unknowns": [
+        "LLM performance on domain-specific or edge-case issues",
+        "User acceptance of semi-automated triage workflow",
+        "Potential for configuration drift or outdated label lists"
+      ],
+      "assumptions": [
+        "All LLM outputs are reviewed by a human before public posting",
+        "Configuration files (labels.json, settings.yaml) are kept up to date",
+        "No features are described in documentation that are not present in code; code and docs are in sync"
+      ]
+    },
+    "citations": [
+      {
+        "id": "CIT-09c28bb2",
+        "path": "package.json",
+        "commit_sha": "abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd",
+        "line_start": 1,
+        "line_end": 23,
+        "url": "https://github.com/itprodirect/rr-eval-issue-handler/blob/abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd/package.json#L1-L23",
+        "note": "Verifies presence of @anthropic-ai/sdk dependency, enabling LLM integration."
+      },
+      {
+        "id": "CIT-534025f8",
+        "path": "src/classifier.ts",
+        "commit_sha": "abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd",
+        "line_start": 1,
+        "line_end": 90,
+        "url": "https://github.com/itprodirect/rr-eval-issue-handler/blob/abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd/src/classifier.ts#L1-L90",
+        "note": "Implements LLM-based classification of issues using Anthropic API."
+      },
+      {
+        "id": "CIT-dcb2550e",
+        "path": "src/responder.ts",
+        "commit_sha": "abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd",
+        "line_start": 1,
+        "line_end": 49,
+        "url": "https://github.com/itprodirect/rr-eval-issue-handler/blob/abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd/src/responder.ts#L1-L49",
+        "note": "LLM drafts responses for issues, requiring human approval before posting."
+      },
+      {
+        "id": "CIT-4ccda3fd",
+        "path": "src/index.ts",
+        "commit_sha": "abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd",
+        "line_start": 1,
+        "line_end": 101,
+        "url": "https://github.com/itprodirect/rr-eval-issue-handler/blob/abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd/src/index.ts#L1-L101",
+        "note": "Main workflow orchestration, integrating classification, labeling, response drafting, and logging."
+      },
+      {
+        "id": "CIT-1735d44f",
+        "path": "src/labeler.ts",
+        "commit_sha": "abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd",
+        "line_start": 1,
+        "line_end": 43,
+        "url": "https://github.com/itprodirect/rr-eval-issue-handler/blob/abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd/src/labeler.ts#L1-L43",
+        "note": "Applies and removes labels on issues, enforcing allowed label set."
+      },
+      {
+        "id": "CIT-17eb6d76",
+        "path": "config/labels.json",
+        "commit_sha": "abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd",
+        "line_start": 1,
+        "line_end": 11,
+        "url": "https://github.com/itprodirect/rr-eval-issue-handler/blob/abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd/config/labels.json#L1-L11",
+        "note": "Defines allowed labels and fallback label for automation."
+      },
+      {
+        "id": "CIT-142dc5f3",
+        "path": "src/guardrails.ts",
+        "commit_sha": "abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd",
+        "line_start": 1,
+        "line_end": 63,
+        "url": "https://github.com/itprodirect/rr-eval-issue-handler/blob/abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd/src/guardrails.ts#L1-L63",
+        "note": "Implements permission and label guardrails for automation."
+      },
+      {
+        "id": "CIT-aae2311e",
+        "path": "src/logger.ts",
+        "commit_sha": "abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd",
+        "line_start": 1,
+        "line_end": 40,
+        "url": "https://github.com/itprodirect/rr-eval-issue-handler/blob/abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd/src/logger.ts#L1-L40",
+        "note": "Logs all classification and labeling decisions for audit."
+      },
+      {
+        "id": "CIT-46980674",
+        "path": "config/settings.yaml",
+        "commit_sha": "abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd",
+        "line_start": 1,
+        "line_end": 27,
+        "url": "https://github.com/itprodirect/rr-eval-issue-handler/blob/abbe622f1db0b6be002a81b64c6d99b6e4a9bdbd/config/settings.yaml#L1-L27",
+        "note": "Defines model, permission, and guardrail settings for automation."
+      }
+    ]
+  },
+  "createdAt": "2026-02-03T03:49:40.268Z"
+}

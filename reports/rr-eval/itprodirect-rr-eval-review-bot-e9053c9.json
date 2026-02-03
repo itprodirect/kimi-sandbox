@@ -1,0 +1,432 @@
+{
+  "id": "d7d3c67f-20f5-4af6-928d-c4211ddd2ffe",
+  "repoUrl": "https://github.com/itprodirect/rr-eval-review-bot",
+  "owner": "itprodirect",
+  "name": "rr-eval-review-bot",
+  "defaultBranch": "main",
+  "commitSha": "e9053c9824f74d262df6dc54a46311673f26246e",
+  "selectedPaths": [
+    "README.md",
+    ".github/workflows/review.yml",
+    "tsconfig.json",
+    "package.json",
+    "src/index.ts",
+    "tests/formatter.test.ts",
+    "tests/differ.test.ts",
+    "tests/filter.test.ts",
+    "package-lock.json",
+    "config/ignore_patterns.yaml",
+    "config/review_rules.yaml",
+    "src/filter.ts",
+    "src/formatter.ts",
+    "src/differ.ts",
+    "src/reviewer.ts"
+  ],
+  "fileDigests": [
+    {
+      "path": "README.md",
+      "sha": "e9053c9824f74d262df6dc54a46311673f26246e",
+      "size": 998,
+      "lineCount": 42,
+      "chunks": 1
+    },
+    {
+      "path": ".github/workflows/review.yml",
+      "sha": "e9053c9824f74d262df6dc54a46311673f26246e",
+      "size": 599,
+      "lineCount": 32,
+      "chunks": 1
+    },
+    {
+      "path": "tsconfig.json",
+      "sha": "e9053c9824f74d262df6dc54a46311673f26246e",
+      "size": 351,
+      "lineCount": 17,
+      "chunks": 1
+    },
+    {
+      "path": "package.json",
+      "sha": "e9053c9824f74d262df6dc54a46311673f26246e",
+      "size": 572,
+      "lineCount": 29,
+      "chunks": 1
+    },
+    {
+      "path": "src/index.ts",
+      "sha": "e9053c9824f74d262df6dc54a46311673f26246e",
+      "size": 4329,
+      "lineCount": 148,
+      "chunks": 1
+    },
+    {
+      "path": "tests/formatter.test.ts",
+      "sha": "e9053c9824f74d262df6dc54a46311673f26246e",
+      "size": 710,
+      "lineCount": 25,
+      "chunks": 1
+    },
+    {
+      "path": "tests/differ.test.ts",
+      "sha": "e9053c9824f74d262df6dc54a46311673f26246e",
+      "size": 831,
+      "lineCount": 29,
+      "chunks": 1
+    },
+    {
+      "path": "tests/filter.test.ts",
+      "sha": "e9053c9824f74d262df6dc54a46311673f26246e",
+      "size": 867,
+      "lineCount": 23,
+      "chunks": 1
+    },
+    {
+      "path": "package-lock.json",
+      "sha": "e9053c9824f74d262df6dc54a46311673f26246e",
+      "size": 60995,
+      "lineCount": 1863,
+      "chunks": 5
+    },
+    {
+      "path": "config/ignore_patterns.yaml",
+      "sha": "e9053c9824f74d262df6dc54a46311673f26246e",
+      "size": 206,
+      "lineCount": 12,
+      "chunks": 1
+    },
+    {
+      "path": "config/review_rules.yaml",
+      "sha": "e9053c9824f74d262df6dc54a46311673f26246e",
+      "size": 334,
+      "lineCount": 20,
+      "chunks": 1
+    },
+    {
+      "path": "src/filter.ts",
+      "sha": "e9053c9824f74d262df6dc54a46311673f26246e",
+      "size": 1440,
+      "lineCount": 50,
+      "chunks": 1
+    },
+    {
+      "path": "src/formatter.ts",
+      "sha": "e9053c9824f74d262df6dc54a46311673f26246e",
+      "size": 1591,
+      "lineCount": 60,
+      "chunks": 1
+    },
+    {
+      "path": "src/differ.ts",
+      "sha": "e9053c9824f74d262df6dc54a46311673f26246e",
+      "size": 3315,
+      "lineCount": 144,
+      "chunks": 1
+    },
+    {
+      "path": "src/reviewer.ts",
+      "sha": "e9053c9824f74d262df6dc54a46311673f26246e",
+      "size": 3918,
+      "lineCount": 141,
+      "chunks": 1
+    }
+  ],
+  "rubric": {
+    "meta": {
+      "repo_url": "https://github.com/itprodirect/rr-eval-review-bot",
+      "owner": "itprodirect",
+      "repo": "rr-eval-review-bot",
+      "commit_sha": "e9053c9824f74d262df6dc54a46311673f26246e",
+      "default_branch": "main",
+      "detected_stack": [
+        "react",
+        "typescript"
+      ],
+      "analyzed_paths": [
+        "README.md",
+        ".github/workflows/review.yml",
+        "tsconfig.json",
+        "package.json",
+        "src/index.ts",
+        "tests/formatter.test.ts",
+        "tests/differ.test.ts",
+        "tests/filter.test.ts",
+        "package-lock.json",
+        "config/ignore_patterns.yaml",
+        "config/review_rules.yaml",
+        "src/filter.ts",
+        "src/formatter.ts",
+        "src/differ.ts",
+        "src/reviewer.ts"
+      ],
+      "content_caps": {
+        "max_files": 25,
+        "max_total_chars": 250000,
+        "truncated": true
+      }
+    },
+    "classification": "C_TASK_AGENTS",
+    "scores": {
+      "variability": 3,
+      "strategic_importance": 4,
+      "operational_impact": 4,
+      "integration_readiness": 4,
+      "blast_radius_risk": 2,
+      "confidence": 0.85
+    },
+    "outcomes": {
+      "enterprise_outcome": "Accelerate and standardize code review quality and throughput for pull requests, reducing manual reviewer burden and improving defect detection.",
+      "workflow_outcome": "Automated agent reviews PR diffs, flags issues (security, bugs, performance, style), and posts structured review comments for human approval.",
+      "kpis": {
+        "efficiency": [
+          "Average time from PR open to first review comment (target: <5 minutes)",
+          "Reduction in manual review hours per PR (target: -50%)"
+        ],
+        "quality": [
+          "Number of critical issues detected per 1000 LOC (target: +20% vs. baseline manual review)",
+          "False positive rate in automated review comments (target: <10%)"
+        ],
+        "business_impact": [
+          "Decrease in post-merge defects attributable to missed review issues (target: -25%)",
+          "Increase in PR throughput per reviewer (target: +30%)"
+        ],
+        "risk_compliance": [
+          "No unauthorized code changes merged due to agent error (target: 0 incidents)",
+          "All agent-generated comments require human approval before merge (target: 100%)"
+        ]
+      }
+    },
+    "tasks": [
+      {
+        "task_id": "T1",
+        "name": "Parse and filter PR diffs",
+        "current_actor": "Automation (bot)",
+        "inputs": [
+          "GitHub PR event payload",
+          "Unified diff string",
+          "Ignore patterns config"
+        ],
+        "outputs": [
+          "Filtered list of changed files and hunks"
+        ],
+        "scores": {
+          "variability": 2,
+          "criticality": 3,
+          "risk": 1
+        },
+        "recommendation": "RULES_AUTOMATION",
+        "rationale": "This task is deterministic and rules-based, relying on config-driven ignore patterns and diff parsing. No LLM or agentic logic is required.",
+        "citations": [
+          "CIT-c3189bae",
+          "CIT-17c0222f",
+          "CIT-e53b3d7c"
+        ]
+      },
+      {
+        "task_id": "T2",
+        "name": "Automated code review using LLM",
+        "current_actor": "Human reviewer",
+        "inputs": [
+          "Filtered diff hunks",
+          "Review rules config"
+        ],
+        "outputs": [
+          "Structured review findings (issues, suggestions, severity)"
+        ],
+        "scores": {
+          "variability": 4,
+          "criticality": 4,
+          "risk": 3
+        },
+        "recommendation": "TASK_AGENT",
+        "rationale": "This task uses an autonomous agent (LLM) to analyze code diffs, generate findings, and structure output for human review. The agent operates within bounded scope (diff, rules) and does not auto-merge or auto-fix.",
+        "citations": [
+          "CIT-ba4ec4c3",
+          "CIT-00f0b682",
+          "CIT-c3189bae"
+        ]
+      },
+      {
+        "task_id": "T3",
+        "name": "Format and post review comments",
+        "current_actor": "Automation (bot)",
+        "inputs": [
+          "Structured review findings",
+          "GitHub PR context"
+        ],
+        "outputs": [
+          "Markdown review comments",
+          "Summary comment"
+        ],
+        "scores": {
+          "variability": 2,
+          "criticality": 2,
+          "risk": 2
+        },
+        "recommendation": "RULES_AUTOMATION",
+        "rationale": "Formatting and posting comments is deterministic and config-driven, with no LLM or agentic logic.",
+        "citations": [
+          "CIT-a9f9a723",
+          "CIT-c3189bae"
+        ]
+      }
+    ],
+    "execution_modes": [
+      {
+        "task_id": "T1",
+        "mode": "STATIC",
+        "why": "File filtering and diff parsing are deterministic and do not require adaptation or collaboration.",
+        "constraints": [
+          "Must match ignore patterns exactly",
+          "No external API calls"
+        ],
+        "citations": [
+          "CIT-17c0222f",
+          "CIT-e53b3d7c"
+        ]
+      },
+      {
+        "task_id": "T2",
+        "mode": "ADAPTIVE",
+        "why": "LLM agent adapts its review based on diff content and review rules, but operates within strict scope and requires human approval for actions.",
+        "constraints": [
+          "Limited to files and lines in diff",
+          "Review rules and severity mapping enforced",
+          "No auto-approval or code changes"
+        ],
+        "citations": [
+          "CIT-ba4ec4c3",
+          "CIT-00f0b682"
+        ]
+      },
+      {
+        "task_id": "T3",
+        "mode": "STATIC",
+        "why": "Formatting and posting comments follow a fixed template and workflow.",
+        "constraints": [
+          "Must not alter code or PR state",
+          "Comments must be traceable to findings"
+        ],
+        "citations": [
+          "CIT-a9f9a723",
+          "CIT-c3189bae"
+        ]
+      }
+    ],
+    "guardrails": {
+      "strategic": [
+        "LLM agent output is limited to review comments; no code changes or merges are performed autonomously.",
+        "All agent-generated findings require human approval before code is merged."
+      ],
+      "operational": [
+        "Limit number of files and lines reviewed per PR to prevent prompt overflow and excessive API usage.",
+        "Enforce severity mapping and review rules from config.",
+        "Fallback to generic findings if LLM output is invalid."
+      ],
+      "implementation": [
+        "Require valid API key for LLM provider; fail gracefully if missing.",
+        "Log all LLM prompts and responses for auditability.",
+        "Restrict agent to operate only on diff lines present in the PR."
+      ]
+    },
+    "pilot": {
+      "recommended_first_task_id": "T2",
+      "baseline": [
+        "Measure current average time to first review comment on PRs.",
+        "Track number of critical issues detected by manual review per 1000 LOC."
+      ],
+      "success_thresholds": [
+        "Automated agent detects at least 80% of critical issues found by human reviewers.",
+        "False positive rate in agent-generated comments remains below 10%.",
+        "No PRs merged solely on agent approval."
+      ],
+      "sandbox_plan": [
+        "Run agent in 'comment-only' mode on a subset of internal PRs.",
+        "Require human reviewers to confirm or reject agent findings.",
+        "Collect feedback on accuracy and usefulness of agent comments."
+      ],
+      "rollback_plan": [
+        "Disable agent posting if false positive rate exceeds 20%.",
+        "Revert to manual review if LLM API errors exceed 5% of runs.",
+        "Remove agent permissions if unauthorized actions are detected."
+      ],
+      "monitoring": [
+        "Log all agent review sessions and findings.",
+        "Track LLM API error rates and latency.",
+        "Monitor reviewer feedback on agent accuracy and helpfulness."
+      ]
+    },
+    "risks": {
+      "key_risks": [
+        "LLM may generate inaccurate or irrelevant review findings.",
+        "Potential for prompt injection or adversarial diffs to manipulate agent output.",
+        "Over-reliance on agent may reduce manual reviewer diligence."
+      ],
+      "unknowns": [
+        "LLM performance on large or complex diffs.",
+        "Long-term reviewer trust in agent-generated comments.",
+        "Impact of API rate limits or outages from LLM provider."
+      ],
+      "assumptions": [
+        "LLM API key is securely managed and not exposed in logs.",
+        "Agent is not permitted to auto-approve or merge PRs.",
+        "README claims of LLM usage are verified by code in src/reviewer.ts, which implements prompt construction and LLM API calls (Anthropic)."
+      ]
+    },
+    "citations": [
+      {
+        "id": "CIT-c3189bae",
+        "path": "src/index.ts",
+        "commit_sha": "e9053c9824f74d262df6dc54a46311673f26246e",
+        "line_start": 1,
+        "line_end": 148,
+        "url": "https://github.com/itprodirect/rr-eval-review-bot/blob/e9053c9824f74d262df6dc54a46311673f26246e/src/index.ts#L1-L148",
+        "note": "Main workflow orchestration for automated review, including config loading, diff fetching, and review posting."
+      },
+      {
+        "id": "CIT-ba4ec4c3",
+        "path": "src/reviewer.ts",
+        "commit_sha": "e9053c9824f74d262df6dc54a46311673f26246e",
+        "line_start": 1,
+        "line_end": 141,
+        "url": "https://github.com/itprodirect/rr-eval-review-bot/blob/e9053c9824f74d262df6dc54a46311673f26246e/src/reviewer.ts#L1-L141",
+        "note": "Implements LLM agent logic: prompt construction, Anthropic API call, and parsing of LLM output for review findings."
+      },
+      {
+        "id": "CIT-00f0b682",
+        "path": "config/review_rules.yaml",
+        "commit_sha": "e9053c9824f74d262df6dc54a46311673f26246e",
+        "line_start": 1,
+        "line_end": 20,
+        "url": "https://github.com/itprodirect/rr-eval-review-bot/blob/e9053c9824f74d262df6dc54a46311673f26246e/config/review_rules.yaml#L1-L20",
+        "note": "Configures LLM model, review limits, severity levels, and review types for the agent."
+      },
+      {
+        "id": "CIT-17c0222f",
+        "path": "src/filter.ts",
+        "commit_sha": "e9053c9824f74d262df6dc54a46311673f26246e",
+        "line_start": 1,
+        "line_end": 50,
+        "url": "https://github.com/itprodirect/rr-eval-review-bot/blob/e9053c9824f74d262df6dc54a46311673f26246e/src/filter.ts#L1-L50",
+        "note": "Implements ignore pattern loading and file filtering logic for diff processing."
+      },
+      {
+        "id": "CIT-e53b3d7c",
+        "path": "src/differ.ts",
+        "commit_sha": "e9053c9824f74d262df6dc54a46311673f26246e",
+        "line_start": 1,
+        "line_end": 144,
+        "url": "https://github.com/itprodirect/rr-eval-review-bot/blob/e9053c9824f74d262df6dc54a46311673f26246e/src/differ.ts#L1-L144",
+        "note": "Parses unified diff text into structured file/hunk/line objects for agent review."
+      },
+      {
+        "id": "CIT-a9f9a723",
+        "path": "src/formatter.ts",
+        "commit_sha": "e9053c9824f74d262df6dc54a46311673f26246e",
+        "line_start": 1,
+        "line_end": 60,
+        "url": "https://github.com/itprodirect/rr-eval-review-bot/blob/e9053c9824f74d262df6dc54a46311673f26246e/src/formatter.ts#L1-L60",
+        "note": "Formats review findings into markdown comments and summaries for posting."
+      }
+    ]
+  },
+  "createdAt": "2026-02-03T20:40:51.378Z"
+}

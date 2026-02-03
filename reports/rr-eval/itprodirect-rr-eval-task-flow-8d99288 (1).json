@@ -1,0 +1,384 @@
+{
+  "id": "bb105f41-cbec-4780-b8ae-5d58f47dcd6e",
+  "repoUrl": "https://github.com/itprodirect/rr-eval-task-flow",
+  "owner": "itprodirect",
+  "name": "rr-eval-task-flow",
+  "defaultBranch": "master",
+  "commitSha": "8d99288cb844ff4a231d52de07f7817ce4d369e9",
+  "selectedPaths": [
+    "README.md",
+    "tsconfig.json",
+    "package.json",
+    "src/index.ts",
+    "src/routes/users.ts",
+    "src/routes/projects.ts",
+    "src/routes/tasks.ts",
+    "jest.config.js",
+    "tests/tasks.test.ts",
+    "tests/validation.test.ts",
+    "src/types.ts",
+    "src/db/connection.ts",
+    "src/middleware/auth.ts",
+    "src/db/migrations.ts",
+    "src/middleware/validation.ts"
+  ],
+  "fileDigests": [
+    {
+      "path": "README.md",
+      "sha": "8d99288cb844ff4a231d52de07f7817ce4d369e9",
+      "size": 2657,
+      "lineCount": 78,
+      "chunks": 1
+    },
+    {
+      "path": "tsconfig.json",
+      "sha": "8d99288cb844ff4a231d52de07f7817ce4d369e9",
+      "size": 454,
+      "lineCount": 20,
+      "chunks": 1
+    },
+    {
+      "path": "package.json",
+      "sha": "8d99288cb844ff4a231d52de07f7817ce4d369e9",
+      "size": 737,
+      "lineCount": 32,
+      "chunks": 1
+    },
+    {
+      "path": "src/index.ts",
+      "sha": "8d99288cb844ff4a231d52de07f7817ce4d369e9",
+      "size": 1213,
+      "lineCount": 51,
+      "chunks": 1
+    },
+    {
+      "path": "src/routes/users.ts",
+      "sha": "8d99288cb844ff4a231d52de07f7817ce4d369e9",
+      "size": 4342,
+      "lineCount": 147,
+      "chunks": 1
+    },
+    {
+      "path": "src/routes/projects.ts",
+      "sha": "8d99288cb844ff4a231d52de07f7817ce4d369e9",
+      "size": 4596,
+      "lineCount": 155,
+      "chunks": 1
+    },
+    {
+      "path": "src/routes/tasks.ts",
+      "sha": "8d99288cb844ff4a231d52de07f7817ce4d369e9",
+      "size": 5756,
+      "lineCount": 193,
+      "chunks": 1
+    },
+    {
+      "path": "jest.config.js",
+      "sha": "8d99288cb844ff4a231d52de07f7817ce4d369e9",
+      "size": 357,
+      "lineCount": 14,
+      "chunks": 1
+    },
+    {
+      "path": "tests/tasks.test.ts",
+      "sha": "8d99288cb844ff4a231d52de07f7817ce4d369e9",
+      "size": 4713,
+      "lineCount": 160,
+      "chunks": 1
+    },
+    {
+      "path": "tests/validation.test.ts",
+      "sha": "8d99288cb844ff4a231d52de07f7817ce4d369e9",
+      "size": 7513,
+      "lineCount": 220,
+      "chunks": 1
+    },
+    {
+      "path": "src/types.ts",
+      "sha": "8d99288cb844ff4a231d52de07f7817ce4d369e9",
+      "size": 1468,
+      "lineCount": 76,
+      "chunks": 1
+    },
+    {
+      "path": "src/db/connection.ts",
+      "sha": "8d99288cb844ff4a231d52de07f7817ce4d369e9",
+      "size": 834,
+      "lineCount": 35,
+      "chunks": 1
+    },
+    {
+      "path": "src/middleware/auth.ts",
+      "sha": "8d99288cb844ff4a231d52de07f7817ce4d369e9",
+      "size": 1737,
+      "lineCount": 65,
+      "chunks": 1
+    },
+    {
+      "path": "src/db/migrations.ts",
+      "sha": "8d99288cb844ff4a231d52de07f7817ce4d369e9",
+      "size": 1977,
+      "lineCount": 64,
+      "chunks": 1
+    },
+    {
+      "path": "src/middleware/validation.ts",
+      "sha": "8d99288cb844ff4a231d52de07f7817ce4d369e9",
+      "size": 3323,
+      "lineCount": 98,
+      "chunks": 1
+    }
+  ],
+  "rubric": {
+    "meta": {
+      "repo_url": "https://github.com/itprodirect/rr-eval-task-flow",
+      "owner": "itprodirect",
+      "repo": "rr-eval-task-flow",
+      "commit_sha": "8d99288cb844ff4a231d52de07f7817ce4d369e9",
+      "default_branch": "master",
+      "detected_stack": [
+        "react",
+        "typescript"
+      ],
+      "analyzed_paths": [
+        "README.md",
+        "tsconfig.json",
+        "package.json",
+        "src/index.ts",
+        "src/routes/users.ts",
+        "src/routes/projects.ts",
+        "src/routes/tasks.ts",
+        "jest.config.js",
+        "tests/tasks.test.ts",
+        "tests/validation.test.ts",
+        "src/types.ts",
+        "src/db/connection.ts",
+        "src/middleware/auth.ts",
+        "src/db/migrations.ts",
+        "src/middleware/validation.ts"
+      ],
+      "content_caps": {
+        "max_files": 25,
+        "max_total_chars": 250000,
+        "truncated": false
+      }
+    },
+    "classification": "A_NOT_AGENTIC",
+    "scores": {
+      "variability": 2,
+      "strategic_importance": 3,
+      "operational_impact": 3,
+      "integration_readiness": 4,
+      "blast_radius_risk": 2,
+      "confidence": 0.6
+    },
+    "outcomes": {
+      "enterprise_outcome": "Streamlined task management processes with enhanced data integrity and security.",
+      "workflow_outcome": "Improved efficiency in task, project, and user management through automated validation and authentication.",
+      "kpis": {
+        "efficiency": [
+          "Reduction in manual validation errors by 30%",
+          "Decrease in authentication-related incidents by 20%"
+        ],
+        "quality": [
+          "Increase in successful task creation and updates by 25%",
+          "Improvement in data integrity checks by 40%"
+        ],
+        "business_impact": [
+          "Enhanced user satisfaction with task management features",
+          "Increased adoption of task management API by 15%"
+        ],
+        "risk_compliance": [
+          "Reduction in unauthorized access attempts by 10%",
+          "Compliance with data protection standards for user information"
+        ]
+      }
+    },
+    "tasks": [
+      {
+        "task_id": "T1",
+        "name": "User Registration",
+        "current_actor": "Human",
+        "inputs": [
+          "User details"
+        ],
+        "outputs": [
+          "User account creation"
+        ],
+        "scores": {
+          "variability": 2,
+          "criticality": 3,
+          "risk": 2
+        },
+        "recommendation": "RULES_AUTOMATION",
+        "rationale": "The task involves standard input validation and database operations, suitable for rules-based automation.",
+        "citations": [
+          "CIT-027a6dd7"
+        ]
+      },
+      {
+        "task_id": "T2",
+        "name": "Task Creation",
+        "current_actor": "Human",
+        "inputs": [
+          "Task details"
+        ],
+        "outputs": [
+          "New task entry"
+        ],
+        "scores": {
+          "variability": 2,
+          "criticality": 3,
+          "risk": 2
+        },
+        "recommendation": "RULES_AUTOMATION",
+        "rationale": "Task creation involves structured data input and validation, which can be automated using predefined rules.",
+        "citations": [
+          "CIT-98854127"
+        ]
+      },
+      {
+        "task_id": "T3",
+        "name": "Project Management",
+        "current_actor": "Human",
+        "inputs": [
+          "Project details"
+        ],
+        "outputs": [
+          "Project records"
+        ],
+        "scores": {
+          "variability": 2,
+          "criticality": 3,
+          "risk": 2
+        },
+        "recommendation": "RULES_AUTOMATION",
+        "rationale": "Project management tasks are primarily CRUD operations, suitable for automation with existing rules.",
+        "citations": [
+          "CIT-08e4efce"
+        ]
+      }
+    ],
+    "execution_modes": [
+      {
+        "task_id": "T1",
+        "mode": "STATIC",
+        "why": "User registration involves fixed validation rules and database operations.",
+        "constraints": [
+          "Requires predefined validation schemas"
+        ],
+        "citations": [
+          "CIT-027a6dd7"
+        ]
+      },
+      {
+        "task_id": "T2",
+        "mode": "STATIC",
+        "why": "Task creation follows a fixed set of validation and database insertion rules.",
+        "constraints": [
+          "Requires consistent input format"
+        ],
+        "citations": [
+          "CIT-98854127"
+        ]
+      },
+      {
+        "task_id": "T3",
+        "mode": "STATIC",
+        "why": "Project management tasks are standard CRUD operations with fixed rules.",
+        "constraints": [
+          "Requires role-based access control"
+        ],
+        "citations": [
+          "CIT-08e4efce"
+        ]
+      }
+    ],
+    "guardrails": {
+      "strategic": [
+        "Ensure compliance with data protection regulations"
+      ],
+      "operational": [
+        "Implement thorough input validation to prevent SQL injection"
+      ],
+      "implementation": [
+        "Use middleware for consistent authentication and validation"
+      ]
+    },
+    "pilot": {
+      "recommended_first_task_id": "T2",
+      "baseline": [
+        "Current task creation error rate",
+        "Average time to create a task"
+      ],
+      "success_thresholds": [
+        "Reduction in task creation errors by 20%",
+        "Decrease in task creation time by 15%"
+      ],
+      "sandbox_plan": [
+        "Deploy task creation automation in a test environment",
+        "Monitor task creation logs for errors"
+      ],
+      "rollback_plan": [
+        "Revert to manual task creation if error rate exceeds baseline"
+      ],
+      "monitoring": [
+        "Track task creation success rates",
+        "Monitor system logs for validation errors"
+      ]
+    },
+    "risks": {
+      "key_risks": [
+        "Potential for data validation errors",
+        "Risk of unauthorized access if authentication fails"
+      ],
+      "unknowns": [
+        "Impact of automation on user satisfaction",
+        "Potential integration issues with existing systems"
+      ],
+      "assumptions": [
+        "Codebase does not currently implement AI features despite README claims",
+        "Standard CRUD operations are sufficient for current needs"
+      ]
+    },
+    "citations": [
+      {
+        "id": "CIT-45db239a",
+        "path": "README.md",
+        "commit_sha": "8d99288cb844ff4a231d52de07f7817ce4d369e9",
+        "line_start": 1,
+        "line_end": 78,
+        "url": "https://github.com/itprodirect/rr-eval-task-flow/blob/8d99288cb844ff4a231d52de07f7817ce4d369e9/README.md#L1-L78",
+        "note": "README claims AI capabilities not supported by code."
+      },
+      {
+        "id": "CIT-027a6dd7",
+        "path": "src/routes/users.ts",
+        "commit_sha": "8d99288cb844ff4a231d52de07f7817ce4d369e9",
+        "line_start": 1,
+        "line_end": 147,
+        "url": "https://github.com/itprodirect/rr-eval-task-flow/blob/8d99288cb844ff4a231d52de07f7817ce4d369e9/src/routes/users.ts#L1-L147",
+        "note": "User registration and login logic."
+      },
+      {
+        "id": "CIT-08e4efce",
+        "path": "src/routes/projects.ts",
+        "commit_sha": "8d99288cb844ff4a231d52de07f7817ce4d369e9",
+        "line_start": 1,
+        "line_end": 155,
+        "url": "https://github.com/itprodirect/rr-eval-task-flow/blob/8d99288cb844ff4a231d52de07f7817ce4d369e9/src/routes/projects.ts#L1-L155",
+        "note": "Project management routes."
+      },
+      {
+        "id": "CIT-98854127",
+        "path": "src/routes/tasks.ts",
+        "commit_sha": "8d99288cb844ff4a231d52de07f7817ce4d369e9",
+        "line_start": 1,
+        "line_end": 193,
+        "url": "https://github.com/itprodirect/rr-eval-task-flow/blob/8d99288cb844ff4a231d52de07f7817ce4d369e9/src/routes/tasks.ts#L1-L193",
+        "note": "Task management routes."
+      }
+    ]
+  },
+  "createdAt": "2026-02-03T00:31:29.828Z"
+}

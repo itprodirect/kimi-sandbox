@@ -1,0 +1,405 @@
+{
+  "id": "60a196b7-3837-4b9d-91f5-9bb8e71b7c61",
+  "repoUrl": "https://github.com/itprodirect/rr-eval-style-checker",
+  "owner": "itprodirect",
+  "name": "rr-eval-style-checker",
+  "defaultBranch": "main",
+  "commitSha": "695c666c5cf119d5daca57030ee5b415ab38e3f1",
+  "selectedPaths": [
+    "README.md",
+    "requirements.txt",
+    "tests/test_engine.py",
+    "tests/test_naming.py",
+    "tests/test_complexity.py",
+    "rules/__init__.py",
+    "src/__init__.py",
+    "src/reporter.py",
+    "src/suggestions.py",
+    "src/cli.py",
+    "src/engine.py",
+    "rules/complexity.py",
+    "rules/formatting.py",
+    "rules/imports.py",
+    "rules/naming.py"
+  ],
+  "fileDigests": [
+    {
+      "path": "README.md",
+      "sha": "695c666c5cf119d5daca57030ee5b415ab38e3f1",
+      "size": 974,
+      "lineCount": 42,
+      "chunks": 1
+    },
+    {
+      "path": "requirements.txt",
+      "sha": "695c666c5cf119d5daca57030ee5b415ab38e3f1",
+      "size": 24,
+      "lineCount": 3,
+      "chunks": 1
+    },
+    {
+      "path": "tests/test_engine.py",
+      "sha": "695c666c5cf119d5daca57030ee5b415ab38e3f1",
+      "size": 338,
+      "lineCount": 13,
+      "chunks": 1
+    },
+    {
+      "path": "tests/test_naming.py",
+      "sha": "695c666c5cf119d5daca57030ee5b415ab38e3f1",
+      "size": 721,
+      "lineCount": 37,
+      "chunks": 1
+    },
+    {
+      "path": "tests/test_complexity.py",
+      "sha": "695c666c5cf119d5daca57030ee5b415ab38e3f1",
+      "size": 977,
+      "lineCount": 50,
+      "chunks": 1
+    },
+    {
+      "path": "rules/__init__.py",
+      "sha": "695c666c5cf119d5daca57030ee5b415ab38e3f1",
+      "size": 1,
+      "lineCount": 2,
+      "chunks": 1
+    },
+    {
+      "path": "src/__init__.py",
+      "sha": "695c666c5cf119d5daca57030ee5b415ab38e3f1",
+      "size": 1,
+      "lineCount": 2,
+      "chunks": 1
+    },
+    {
+      "path": "src/reporter.py",
+      "sha": "695c666c5cf119d5daca57030ee5b415ab38e3f1",
+      "size": 476,
+      "lineCount": 17,
+      "chunks": 1
+    },
+    {
+      "path": "src/suggestions.py",
+      "sha": "695c666c5cf119d5daca57030ee5b415ab38e3f1",
+      "size": 900,
+      "lineCount": 35,
+      "chunks": 1
+    },
+    {
+      "path": "src/cli.py",
+      "sha": "695c666c5cf119d5daca57030ee5b415ab38e3f1",
+      "size": 1083,
+      "lineCount": 36,
+      "chunks": 1
+    },
+    {
+      "path": "src/engine.py",
+      "sha": "695c666c5cf119d5daca57030ee5b415ab38e3f1",
+      "size": 1182,
+      "lineCount": 52,
+      "chunks": 1
+    },
+    {
+      "path": "rules/complexity.py",
+      "sha": "695c666c5cf119d5daca57030ee5b415ab38e3f1",
+      "size": 1500,
+      "lineCount": 43,
+      "chunks": 1
+    },
+    {
+      "path": "rules/formatting.py",
+      "sha": "695c666c5cf119d5daca57030ee5b415ab38e3f1",
+      "size": 1635,
+      "lineCount": 49,
+      "chunks": 1
+    },
+    {
+      "path": "rules/imports.py",
+      "sha": "695c666c5cf119d5daca57030ee5b415ab38e3f1",
+      "size": 2064,
+      "lineCount": 62,
+      "chunks": 1
+    },
+    {
+      "path": "rules/naming.py",
+      "sha": "695c666c5cf119d5daca57030ee5b415ab38e3f1",
+      "size": 3743,
+      "lineCount": 93,
+      "chunks": 1
+    }
+  ],
+  "rubric": {
+    "meta": {
+      "repo_url": "https://github.com/itprodirect/rr-eval-style-checker",
+      "owner": "itprodirect",
+      "repo": "rr-eval-style-checker",
+      "commit_sha": "695c666c5cf119d5daca57030ee5b415ab38e3f1",
+      "default_branch": "main",
+      "detected_stack": [
+        "python"
+      ],
+      "analyzed_paths": [
+        "README.md",
+        "requirements.txt",
+        "tests/test_engine.py",
+        "tests/test_naming.py",
+        "tests/test_complexity.py",
+        "rules/__init__.py",
+        "src/__init__.py",
+        "src/reporter.py",
+        "src/suggestions.py",
+        "src/cli.py",
+        "src/engine.py",
+        "rules/complexity.py",
+        "rules/formatting.py",
+        "rules/imports.py",
+        "rules/naming.py"
+      ],
+      "content_caps": {
+        "max_files": 25,
+        "max_total_chars": 250000,
+        "truncated": false
+      }
+    },
+    "classification": "B_LLM_ASSIST",
+    "scores": {
+      "variability": 3,
+      "strategic_importance": 5,
+      "operational_impact": 4,
+      "integration_readiness": 4,
+      "blast_radius_risk": 2,
+      "confidence": 0.9
+    },
+    "outcomes": {
+      "enterprise_outcome": "Accelerate and standardize Python code quality enforcement with optional AI-powered naming suggestions.",
+      "workflow_outcome": "Developers receive deterministic linting and, if enabled, LLM-generated variable name suggestions to improve code clarity.",
+      "kpis": {
+        "efficiency": [
+          "Reduction in manual code review time for naming issues (target: 30% decrease)",
+          "Faster onboarding for new developers (target: 20% faster ramp-up)"
+        ],
+        "quality": [
+          "Increase in codebase naming convention compliance (target: >95%)",
+          "Reduction in naming-related code review comments (target: 50% decrease)"
+        ],
+        "business_impact": [
+          "Improved maintainability of Python projects",
+          "Fewer post-merge code style defects"
+        ],
+        "risk_compliance": [
+          "No code changes are made automatically; suggestions are advisory only",
+          "LLM suggestions are only generated if explicitly enabled by the user"
+        ]
+      }
+    },
+    "tasks": [
+      {
+        "task_id": "T1",
+        "name": "Static Linting of Python Source Files",
+        "current_actor": "Developer/CI",
+        "inputs": [
+          "Python source files"
+        ],
+        "outputs": [
+          "List of style issues (naming, imports, complexity, formatting)"
+        ],
+        "scores": {
+          "variability": 2,
+          "criticality": 5,
+          "risk": 1
+        },
+        "recommendation": "RULES_AUTOMATION",
+        "rationale": "This task is fully deterministic, using AST and rule-based logic for style checking. No LLM or agentic automation is required or beneficial here.",
+        "citations": [
+          "CIT-bf959ee6",
+          "CIT-4e2f873d",
+          "CIT-8425e50e",
+          "CIT-8fec804d",
+          "CIT-071c5a54"
+        ]
+      },
+      {
+        "task_id": "T2",
+        "name": "Suggest Improved Variable Names Using LLM",
+        "current_actor": "Developer (optional, via CLI)",
+        "inputs": [
+          "Variable name",
+          "Variable context (code snippet)"
+        ],
+        "outputs": [
+          "Suggested improved variable name"
+        ],
+        "scores": {
+          "variability": 4,
+          "criticality": 3,
+          "risk": 2
+        },
+        "recommendation": "LLM_ASSIST",
+        "rationale": "This task leverages the OpenAI API to provide naming suggestions. It is optional, requires explicit user activation, and outputs are advisory, not autonomous.",
+        "citations": [
+          "CIT-f31d7b45",
+          "CIT-d589647f"
+        ]
+      }
+    ],
+    "execution_modes": [
+      {
+        "task_id": "T1",
+        "mode": "STATIC",
+        "why": "Linting is deterministic and rule-based; results are consistent and reproducible.",
+        "constraints": [
+          "No code modification is performed",
+          "Only static analysis; no external calls"
+        ],
+        "citations": [
+          "CIT-bf959ee6",
+          "CIT-4e2f873d",
+          "CIT-8425e50e",
+          "CIT-8fec804d",
+          "CIT-071c5a54"
+        ]
+      },
+      {
+        "task_id": "T2",
+        "mode": "COLLABORATIVE",
+        "why": "LLM suggestions are generated on demand and require human review/acceptance before any action is taken.",
+        "constraints": [
+          "Requires OPENAI_API_KEY to be set",
+          "Suggestions are not applied automatically",
+          "LLM is only queried for naming issues if user enables the feature"
+        ],
+        "citations": [
+          "CIT-f31d7b45",
+          "CIT-d589647f"
+        ]
+      }
+    ],
+    "guardrails": {
+      "strategic": [
+        "LLM-powered suggestions are opt-in and never modify code directly",
+        "All LLM interactions are logged and visible to the user"
+      ],
+      "operational": [
+        "LLM API key must be explicitly provided by the user",
+        "If LLM is unavailable or fails, the tool continues with deterministic linting only"
+      ],
+      "implementation": [
+        "LLM suggestions are only generated for naming issues and only when --suggest is passed",
+        "Suggestions are returned as plain text and must be reviewed by a human before adoption"
+      ]
+    },
+    "pilot": {
+      "recommended_first_task_id": "T2",
+      "baseline": [
+        "Measure current rate of naming convention violations and manual review comments"
+      ],
+      "success_thresholds": [
+        "At least 50% of LLM suggestions are accepted or found useful by developers",
+        "No increase in code review time or merge conflicts"
+      ],
+      "sandbox_plan": [
+        "Enable LLM suggestions on a non-production branch or with a subset of developers",
+        "Collect feedback on suggestion quality and workflow impact"
+      ],
+      "rollback_plan": [
+        "Disable --suggest flag and remove OPENAI_API_KEY to revert to deterministic linting only",
+        "Monitor for any regressions in naming convention compliance"
+      ],
+      "monitoring": [
+        "Track frequency and acceptance rate of LLM suggestions",
+        "Solicit developer feedback on suggestion relevance and clarity"
+      ]
+    },
+    "risks": {
+      "key_risks": [
+        "LLM suggestions may be irrelevant or low quality, requiring human review",
+        "Potential for accidental exposure of code snippets to external LLM provider"
+      ],
+      "unknowns": [
+        "Actual developer adoption and trust in LLM-powered suggestions",
+        "LLM cost and latency under real-world usage"
+      ],
+      "assumptions": [
+        "LLM suggestions are only generated if explicitly enabled by the user (verified in code)",
+        "No claims of autonomous code modification are made or implemented",
+        "README and code are consistent regarding optional LLM integration"
+      ]
+    },
+    "citations": [
+      {
+        "id": "CIT-3478d570",
+        "path": "requirements.txt",
+        "commit_sha": "695c666c5cf119d5daca57030ee5b415ab38e3f1",
+        "line_start": 1,
+        "line_end": 3,
+        "url": "https://github.com/itprodirect/rr-eval-style-checker/blob/695c666c5cf119d5daca57030ee5b415ab38e3f1/requirements.txt#L1-L3",
+        "note": "Presence of openai dependency enables LLM integration."
+      },
+      {
+        "id": "CIT-f31d7b45",
+        "path": "src/suggestions.py",
+        "commit_sha": "695c666c5cf119d5daca57030ee5b415ab38e3f1",
+        "line_start": 1,
+        "line_end": 35,
+        "url": "https://github.com/itprodirect/rr-eval-style-checker/blob/695c666c5cf119d5daca57030ee5b415ab38e3f1/src/suggestions.py#L1-L35",
+        "note": "LLM API call for variable name suggestions."
+      },
+      {
+        "id": "CIT-d589647f",
+        "path": "src/cli.py",
+        "commit_sha": "695c666c5cf119d5daca57030ee5b415ab38e3f1",
+        "line_start": 1,
+        "line_end": 36,
+        "url": "https://github.com/itprodirect/rr-eval-style-checker/blob/695c666c5cf119d5daca57030ee5b415ab38e3f1/src/cli.py#L1-L36",
+        "note": "CLI enables optional LLM suggestions via --suggest flag."
+      },
+      {
+        "id": "CIT-bf959ee6",
+        "path": "src/engine.py",
+        "commit_sha": "695c666c5cf119d5daca57030ee5b415ab38e3f1",
+        "line_start": 1,
+        "line_end": 52,
+        "url": "https://github.com/itprodirect/rr-eval-style-checker/blob/695c666c5cf119d5daca57030ee5b415ab38e3f1/src/engine.py#L1-L52",
+        "note": "Deterministic linting engine for Python files."
+      },
+      {
+        "id": "CIT-4e2f873d",
+        "path": "rules/complexity.py",
+        "commit_sha": "695c666c5cf119d5daca57030ee5b415ab38e3f1",
+        "line_start": 1,
+        "line_end": 43,
+        "url": "https://github.com/itprodirect/rr-eval-style-checker/blob/695c666c5cf119d5daca57030ee5b415ab38e3f1/rules/complexity.py#L1-L43",
+        "note": "Rule-based complexity checks."
+      },
+      {
+        "id": "CIT-8425e50e",
+        "path": "rules/formatting.py",
+        "commit_sha": "695c666c5cf119d5daca57030ee5b415ab38e3f1",
+        "line_start": 1,
+        "line_end": 49,
+        "url": "https://github.com/itprodirect/rr-eval-style-checker/blob/695c666c5cf119d5daca57030ee5b415ab38e3f1/rules/formatting.py#L1-L49",
+        "note": "Rule-based formatting checks."
+      },
+      {
+        "id": "CIT-8fec804d",
+        "path": "rules/imports.py",
+        "commit_sha": "695c666c5cf119d5daca57030ee5b415ab38e3f1",
+        "line_start": 1,
+        "line_end": 62,
+        "url": "https://github.com/itprodirect/rr-eval-style-checker/blob/695c666c5cf119d5daca57030ee5b415ab38e3f1/rules/imports.py#L1-L62",
+        "note": "Rule-based import checks."
+      },
+      {
+        "id": "CIT-071c5a54",
+        "path": "rules/naming.py",
+        "commit_sha": "695c666c5cf119d5daca57030ee5b415ab38e3f1",
+        "line_start": 1,
+        "line_end": 93,
+        "url": "https://github.com/itprodirect/rr-eval-style-checker/blob/695c666c5cf119d5daca57030ee5b415ab38e3f1/rules/naming.py#L1-L93",
+        "note": "Rule-based naming convention checks."
+      }
+    ]
+  },
+  "createdAt": "2026-02-03T04:28:27.359Z"
+}

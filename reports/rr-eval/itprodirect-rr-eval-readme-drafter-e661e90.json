@@ -1,0 +1,426 @@
+{
+  "id": "1209b777-0248-4a5b-83a7-78fb73cfa520",
+  "repoUrl": "https://github.com/itprodirect/rr-eval-readme-drafter",
+  "owner": "itprodirect",
+  "name": "rr-eval-readme-drafter",
+  "defaultBranch": "main",
+  "commitSha": "e661e909b257312243576331eaeee882a7942d55",
+  "selectedPaths": [
+    "README.md",
+    "requirements.txt",
+    "pyproject.toml",
+    "tests/test_quality.py",
+    "tests/test_scanner.py",
+    "src/__init__.py",
+    "templates/readme_skeleton.md",
+    "prompts/changelog.md",
+    "prompts/api_docs.md",
+    "prompts/default.md",
+    "src/quality.py",
+    "src/generator.py",
+    "src/scanner.py",
+    "src/cli.py"
+  ],
+  "fileDigests": [
+    {
+      "path": "README.md",
+      "sha": "e661e909b257312243576331eaeee882a7942d55",
+      "size": 1115,
+      "lineCount": 39,
+      "chunks": 1
+    },
+    {
+      "path": "requirements.txt",
+      "sha": "e661e909b257312243576331eaeee882a7942d55",
+      "size": 24,
+      "lineCount": 3,
+      "chunks": 1
+    },
+    {
+      "path": "pyproject.toml",
+      "sha": "e661e909b257312243576331eaeee882a7942d55",
+      "size": 386,
+      "lineCount": 18,
+      "chunks": 1
+    },
+    {
+      "path": "tests/test_quality.py",
+      "sha": "e661e909b257312243576331eaeee882a7942d55",
+      "size": 700,
+      "lineCount": 35,
+      "chunks": 1
+    },
+    {
+      "path": "tests/test_scanner.py",
+      "sha": "e661e909b257312243576331eaeee882a7942d55",
+      "size": 1591,
+      "lineCount": 55,
+      "chunks": 1
+    },
+    {
+      "path": "src/__init__.py",
+      "sha": "e661e909b257312243576331eaeee882a7942d55",
+      "size": 30,
+      "lineCount": 2,
+      "chunks": 1
+    },
+    {
+      "path": "templates/readme_skeleton.md",
+      "sha": "e661e909b257312243576331eaeee882a7942d55",
+      "size": 295,
+      "lineCount": 24,
+      "chunks": 1
+    },
+    {
+      "path": "prompts/changelog.md",
+      "sha": "e661e909b257312243576331eaeee882a7942d55",
+      "size": 409,
+      "lineCount": 16,
+      "chunks": 1
+    },
+    {
+      "path": "prompts/api_docs.md",
+      "sha": "e661e909b257312243576331eaeee882a7942d55",
+      "size": 417,
+      "lineCount": 16,
+      "chunks": 1
+    },
+    {
+      "path": "prompts/default.md",
+      "sha": "e661e909b257312243576331eaeee882a7942d55",
+      "size": 635,
+      "lineCount": 24,
+      "chunks": 1
+    },
+    {
+      "path": "src/quality.py",
+      "sha": "e661e909b257312243576331eaeee882a7942d55",
+      "size": 1808,
+      "lineCount": 46,
+      "chunks": 1
+    },
+    {
+      "path": "src/generator.py",
+      "sha": "e661e909b257312243576331eaeee882a7942d55",
+      "size": 2837,
+      "lineCount": 77,
+      "chunks": 1
+    },
+    {
+      "path": "src/scanner.py",
+      "sha": "e661e909b257312243576331eaeee882a7942d55",
+      "size": 3866,
+      "lineCount": 120,
+      "chunks": 1
+    },
+    {
+      "path": "src/cli.py",
+      "sha": "e661e909b257312243576331eaeee882a7942d55",
+      "size": 3978,
+      "lineCount": 119,
+      "chunks": 1
+    }
+  ],
+  "rubric": {
+    "meta": {
+      "repo_url": "https://github.com/itprodirect/rr-eval-readme-drafter",
+      "owner": "itprodirect",
+      "repo": "rr-eval-readme-drafter",
+      "commit_sha": "e661e909b257312243576331eaeee882a7942d55",
+      "default_branch": "main",
+      "detected_stack": [
+        "python"
+      ],
+      "analyzed_paths": [
+        "README.md",
+        "requirements.txt",
+        "pyproject.toml",
+        "tests/test_quality.py",
+        "tests/test_scanner.py",
+        "src/__init__.py",
+        "templates/readme_skeleton.md",
+        "prompts/changelog.md",
+        "prompts/api_docs.md",
+        "prompts/default.md",
+        "src/quality.py",
+        "src/generator.py",
+        "src/scanner.py",
+        "src/cli.py"
+      ],
+      "content_caps": {
+        "max_files": 25,
+        "max_total_chars": 250000,
+        "truncated": false
+      }
+    },
+    "classification": "B_LLM_ASSIST",
+    "scores": {
+      "variability": 3,
+      "strategic_importance": 5,
+      "operational_impact": 4,
+      "integration_readiness": 4,
+      "blast_radius_risk": 2,
+      "confidence": 0.95
+    },
+    "outcomes": {
+      "enterprise_outcome": "Accelerate and standardize the creation of high-quality README documentation for Python projects, reducing manual drafting effort and improving onboarding speed.",
+      "workflow_outcome": "Automated generation of README drafts using LLMs, with human review required before publication.",
+      "kpis": {
+        "efficiency": [
+          "Average time to first README draft (minutes)",
+          "Reduction in manual documentation drafting hours per project"
+        ],
+        "quality": [
+          "README quality score (as measured by score_document)",
+          "Percentage of README drafts accepted with minimal edits"
+        ],
+        "business_impact": [
+          "Number of projects onboarded/documented per month",
+          "Reduction in onboarding time for new developers"
+        ],
+        "risk_compliance": [
+          "Incidents of sensitive or inaccurate content in drafts",
+          "Percentage of drafts flagged for human review"
+        ]
+      }
+    },
+    "tasks": [
+      {
+        "task_id": "T1",
+        "name": "Scan Python source code for structure and docstrings",
+        "current_actor": "Automation (scanner module)",
+        "inputs": [
+          "Python source files"
+        ],
+        "outputs": [
+          "Structured metadata (functions, classes, docstrings)"
+        ],
+        "scores": {
+          "variability": 2,
+          "criticality": 4,
+          "risk": 1
+        },
+        "recommendation": "RULES_AUTOMATION",
+        "rationale": "This task is deterministic and rule-based, using AST parsing to extract code structure. No LLM or agentic logic is required.",
+        "citations": [
+          "CIT-9e0a2ead",
+          "CIT-f37e1ebb"
+        ]
+      },
+      {
+        "task_id": "T2",
+        "name": "Generate README draft using LLM",
+        "current_actor": "Human (manual drafting) or Automation (LLM via generator module)",
+        "inputs": [
+          "Code scan metadata",
+          "Prompt template"
+        ],
+        "outputs": [
+          "Draft README markdown"
+        ],
+        "scores": {
+          "variability": 4,
+          "criticality": 5,
+          "risk": 2
+        },
+        "recommendation": "LLM_ASSIST",
+        "rationale": "This task leverages OpenAI's LLM to generate README drafts based on code analysis and prompt templates. Output is for human review, not direct publication.",
+        "citations": [
+          "CIT-764c9d81",
+          "CIT-aad84073",
+          "CIT-e735b84f"
+        ]
+      },
+      {
+        "task_id": "T3",
+        "name": "Score README quality",
+        "current_actor": "Automation (quality module)",
+        "inputs": [
+          "README markdown"
+        ],
+        "outputs": [
+          "Quality score breakdown"
+        ],
+        "scores": {
+          "variability": 2,
+          "criticality": 3,
+          "risk": 1
+        },
+        "recommendation": "RULES_AUTOMATION",
+        "rationale": "This is a deterministic, rule-based scoring system using regex and keyword checks. No LLM or agentic logic is required.",
+        "citations": [
+          "CIT-22591f81",
+          "CIT-5328f61c"
+        ]
+      }
+    ],
+    "execution_modes": [
+      {
+        "task_id": "T1",
+        "mode": "STATIC",
+        "why": "AST-based code scanning is deterministic and does not require adaptation or collaboration.",
+        "constraints": [
+          "Only processes Python files",
+          "Ignores excluded files/patterns"
+        ],
+        "citations": [
+          "CIT-9e0a2ead"
+        ]
+      },
+      {
+        "task_id": "T2",
+        "mode": "COLLABORATIVE",
+        "why": "LLM generates drafts, but human review and approval are required before publication. The LLM output is not final.",
+        "constraints": [
+          "Drafts are saved to a drafts/ directory and not published automatically",
+          "Human must review and edit before use"
+        ],
+        "citations": [
+          "CIT-764c9d81",
+          "CIT-e735b84f"
+        ]
+      },
+      {
+        "task_id": "T3",
+        "mode": "STATIC",
+        "why": "Quality scoring is rule-based and does not adapt or require collaboration.",
+        "constraints": [
+          "Scoring is based on fixed regex and keyword rules"
+        ],
+        "citations": [
+          "CIT-22591f81"
+        ]
+      }
+    ],
+    "guardrails": {
+      "strategic": [
+        "Require human review and approval before any LLM-generated README is published or committed",
+        "Do not allow direct publishing of LLM outputs to production repositories"
+      ],
+      "operational": [
+        "Drafts must be saved to a drafts/ directory with a warning header",
+        "Require explicit human action to move drafts into production documentation"
+      ],
+      "implementation": [
+        "Enforce API key management for OpenAI usage",
+        "Log all LLM prompts and responses for auditability",
+        "Limit LLM output length to prevent excessive or irrelevant content"
+      ]
+    },
+    "pilot": {
+      "recommended_first_task_id": "T2",
+      "baseline": [
+        "Manual time to draft a README for a new Python project",
+        "Average quality score of manually written READMEs"
+      ],
+      "success_thresholds": [
+        "LLM-generated drafts reduce manual drafting time by at least 50%",
+        "At least 80% of LLM drafts achieve a quality score of 80 or higher after minimal human edits"
+      ],
+      "sandbox_plan": [
+        "Run the tool on 3-5 internal Python projects in a non-production environment",
+        "Require all drafts to be reviewed and edited by documentation owners before any publication"
+      ],
+      "rollback_plan": [
+        "If LLM outputs contain sensitive or inaccurate content, revert to manual drafting",
+        "Disable LLM integration and use only rule-based scanning and scoring modules"
+      ],
+      "monitoring": [
+        "Track number of drafts generated, reviewed, and accepted",
+        "Monitor for any incidents of inappropriate or low-quality LLM output",
+        "Collect feedback from human reviewers on draft usefulness and required edits"
+      ]
+    },
+    "risks": {
+      "key_risks": [
+        "LLM may generate inaccurate or boilerplate content that requires significant human editing",
+        "Potential for sensitive or proprietary information to be included in prompts or LLM outputs",
+        "Over-reliance on LLM output may reduce documentation quality if human review is bypassed"
+      ],
+      "unknowns": [
+        "How well the LLM generalizes to diverse codebases and project types",
+        "User acceptance of LLM-generated drafts versus manual documentation"
+      ],
+      "assumptions": [
+        "All LLM outputs are reviewed by a human before publication",
+        "No direct publishing of LLM drafts occurs without explicit approval",
+        "README and documentation claims match the implemented code (verified in this assessment)"
+      ]
+    },
+    "citations": [
+      {
+        "id": "CIT-4dd8e620",
+        "path": "requirements.txt",
+        "commit_sha": "e661e909b257312243576331eaeee882a7942d55",
+        "line_start": 1,
+        "line_end": 3,
+        "url": "https://github.com/itprodirect/rr-eval-readme-drafter/blob/e661e909b257312243576331eaeee882a7942d55/requirements.txt#L1-L3",
+        "note": "Presence of openai dependency confirms LLM integration."
+      },
+      {
+        "id": "CIT-764c9d81",
+        "path": "src/generator.py",
+        "commit_sha": "e661e909b257312243576331eaeee882a7942d55",
+        "line_start": 1,
+        "line_end": 77,
+        "url": "https://github.com/itprodirect/rr-eval-readme-drafter/blob/e661e909b257312243576331eaeee882a7942d55/src/generator.py#L1-L77",
+        "note": "Implements LLM prompt construction and OpenAI API calls for draft generation."
+      },
+      {
+        "id": "CIT-aad84073",
+        "path": "src/cli.py",
+        "commit_sha": "e661e909b257312243576331eaeee882a7942d55",
+        "line_start": 1,
+        "line_end": 119,
+        "url": "https://github.com/itprodirect/rr-eval-readme-drafter/blob/e661e909b257312243576331eaeee882a7942d55/src/cli.py#L1-L119",
+        "note": "CLI orchestrates scanning, LLM draft generation, and scoring."
+      },
+      {
+        "id": "CIT-9e0a2ead",
+        "path": "src/scanner.py",
+        "commit_sha": "e661e909b257312243576331eaeee882a7942d55",
+        "line_start": 1,
+        "line_end": 120,
+        "url": "https://github.com/itprodirect/rr-eval-readme-drafter/blob/e661e909b257312243576331eaeee882a7942d55/src/scanner.py#L1-L120",
+        "note": "Implements deterministic AST-based code scanning."
+      },
+      {
+        "id": "CIT-22591f81",
+        "path": "src/quality.py",
+        "commit_sha": "e661e909b257312243576331eaeee882a7942d55",
+        "line_start": 1,
+        "line_end": 46,
+        "url": "https://github.com/itprodirect/rr-eval-readme-drafter/blob/e661e909b257312243576331eaeee882a7942d55/src/quality.py#L1-L46",
+        "note": "Rule-based quality scoring for markdown documents."
+      },
+      {
+        "id": "CIT-e735b84f",
+        "path": "README.md",
+        "commit_sha": "e661e909b257312243576331eaeee882a7942d55",
+        "line_start": 1,
+        "line_end": 39,
+        "url": "https://github.com/itprodirect/rr-eval-readme-drafter/blob/e661e909b257312243576331eaeee882a7942d55/README.md#L1-L39",
+        "note": "Describes LLM-assisted draft generation and human-in-the-loop workflow."
+      },
+      {
+        "id": "CIT-5328f61c",
+        "path": "tests/test_quality.py",
+        "commit_sha": "e661e909b257312243576331eaeee882a7942d55",
+        "line_start": 1,
+        "line_end": 35,
+        "url": "https://github.com/itprodirect/rr-eval-readme-drafter/blob/e661e909b257312243576331eaeee882a7942d55/tests/test_quality.py#L1-L35",
+        "note": "Tests for rule-based quality scoring."
+      },
+      {
+        "id": "CIT-f37e1ebb",
+        "path": "tests/test_scanner.py",
+        "commit_sha": "e661e909b257312243576331eaeee882a7942d55",
+        "line_start": 1,
+        "line_end": 55,
+        "url": "https://github.com/itprodirect/rr-eval-readme-drafter/blob/e661e909b257312243576331eaeee882a7942d55/tests/test_scanner.py#L1-L55",
+        "note": "Tests for deterministic code scanning."
+      }
+    ]
+  },
+  "createdAt": "2026-02-03T03:27:09.864Z"
+}

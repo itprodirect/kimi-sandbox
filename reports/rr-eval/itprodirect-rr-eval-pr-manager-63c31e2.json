@@ -1,0 +1,387 @@
+{
+  "id": "80a6f164-9d8e-44fb-a07f-9faa2c558b7e",
+  "repoUrl": "https://github.com/itprodirect/rr-eval-pr-manager",
+  "owner": "itprodirect",
+  "name": "rr-eval-pr-manager",
+  "defaultBranch": "main",
+  "commitSha": "63c31e2d36371732336ef1074ccc6a3c6ac5076f",
+  "selectedPaths": [
+    "README.md",
+    ".github/workflows/auto_merge.yml",
+    ".github/workflows/describe.yml",
+    "tsconfig.json",
+    "package.json",
+    "tests/merge_check.test.ts",
+    "tests/rules.test.ts",
+    "package-lock.json",
+    "config/settings.yaml",
+    "src/notify.ts",
+    "src/describe.ts",
+    "src/merge_check.ts",
+    "src/rules.ts"
+  ],
+  "fileDigests": [
+    {
+      "path": "README.md",
+      "sha": "63c31e2d36371732336ef1074ccc6a3c6ac5076f",
+      "size": 1379,
+      "lineCount": 63,
+      "chunks": 1
+    },
+    {
+      "path": ".github/workflows/auto_merge.yml",
+      "sha": "63c31e2d36371732336ef1074ccc6a3c6ac5076f",
+      "size": 658,
+      "lineCount": 32,
+      "chunks": 1
+    },
+    {
+      "path": ".github/workflows/describe.yml",
+      "sha": "63c31e2d36371732336ef1074ccc6a3c6ac5076f",
+      "size": 1007,
+      "lineCount": 37,
+      "chunks": 1
+    },
+    {
+      "path": "tsconfig.json",
+      "sha": "63c31e2d36371732336ef1074ccc6a3c6ac5076f",
+      "size": 336,
+      "lineCount": 16,
+      "chunks": 1
+    },
+    {
+      "path": "package.json",
+      "sha": "63c31e2d36371732336ef1074ccc6a3c6ac5076f",
+      "size": 536,
+      "lineCount": 22,
+      "chunks": 1
+    },
+    {
+      "path": "tests/merge_check.test.ts",
+      "sha": "63c31e2d36371732336ef1074ccc6a3c6ac5076f",
+      "size": 1236,
+      "lineCount": 46,
+      "chunks": 1
+    },
+    {
+      "path": "tests/rules.test.ts",
+      "sha": "63c31e2d36371732336ef1074ccc6a3c6ac5076f",
+      "size": 2869,
+      "lineCount": 101,
+      "chunks": 1
+    },
+    {
+      "path": "package-lock.json",
+      "sha": "63c31e2d36371732336ef1074ccc6a3c6ac5076f",
+      "size": 60995,
+      "lineCount": 1863,
+      "chunks": 5
+    },
+    {
+      "path": "config/settings.yaml",
+      "sha": "63c31e2d36371732336ef1074ccc6a3c6ac5076f",
+      "size": 466,
+      "lineCount": 25,
+      "chunks": 1
+    },
+    {
+      "path": "src/notify.ts",
+      "sha": "63c31e2d36371732336ef1074ccc6a3c6ac5076f",
+      "size": 1683,
+      "lineCount": 63,
+      "chunks": 1
+    },
+    {
+      "path": "src/describe.ts",
+      "sha": "63c31e2d36371732336ef1074ccc6a3c6ac5076f",
+      "size": 3907,
+      "lineCount": 136,
+      "chunks": 1
+    },
+    {
+      "path": "src/merge_check.ts",
+      "sha": "63c31e2d36371732336ef1074ccc6a3c6ac5076f",
+      "size": 4134,
+      "lineCount": 134,
+      "chunks": 1
+    },
+    {
+      "path": "src/rules.ts",
+      "sha": "63c31e2d36371732336ef1074ccc6a3c6ac5076f",
+      "size": 4886,
+      "lineCount": 154,
+      "chunks": 1
+    }
+  ],
+  "rubric": {
+    "meta": {
+      "repo_url": "https://github.com/itprodirect/rr-eval-pr-manager",
+      "owner": "itprodirect",
+      "repo": "rr-eval-pr-manager",
+      "commit_sha": "63c31e2d36371732336ef1074ccc6a3c6ac5076f",
+      "default_branch": "main",
+      "detected_stack": [
+        "react",
+        "typescript"
+      ],
+      "analyzed_paths": [
+        "README.md",
+        ".github/workflows/auto_merge.yml",
+        ".github/workflows/describe.yml",
+        "tsconfig.json",
+        "package.json",
+        "tests/merge_check.test.ts",
+        "tests/rules.test.ts",
+        "package-lock.json",
+        "config/settings.yaml",
+        "src/notify.ts",
+        "src/describe.ts",
+        "src/merge_check.ts",
+        "src/rules.ts"
+      ],
+      "content_caps": {
+        "max_files": 25,
+        "max_total_chars": 250000,
+        "truncated": true
+      }
+    },
+    "classification": "B_LLM_ASSIST",
+    "scores": {
+      "variability": 3,
+      "strategic_importance": 4,
+      "operational_impact": 4,
+      "integration_readiness": 4,
+      "blast_radius_risk": 2,
+      "confidence": 0.9
+    },
+    "outcomes": {
+      "enterprise_outcome": "Reduce manual effort and improve consistency in PR documentation and merge safety for dependency updates.",
+      "workflow_outcome": "Automated generation of PR descriptions and safe auto-merging of trusted dependency PRs with human-in-the-loop review for non-trivial cases.",
+      "kpis": {
+        "efficiency": [
+          "Average time from PR open to merge for dependency updates (target: reduce by 50%)",
+          "Number of manual PR description edits required per week (target: reduce by 70%)"
+        ],
+        "quality": [
+          "Percentage of PRs with complete, clear descriptions (target: >95%)",
+          "Incidence of merge rule violations (target: 0 for auto-merged PRs)"
+        ],
+        "business_impact": [
+          "Developer hours saved per month (target: >10 hours/month)",
+          "Faster adoption of security/bugfix dependency updates (target: median lag <24h)"
+        ],
+        "risk_compliance": [
+          "No auto-merges outside trusted authors/paths (target: 100% compliance)",
+          "No merge of PRs with blocked labels or failing checks (target: 100% compliance)"
+        ]
+      }
+    },
+    "tasks": [
+      {
+        "task_id": "T1",
+        "name": "Generate draft PR descriptions using LLM",
+        "current_actor": "Bot (with LLM API)",
+        "inputs": [
+          "PR title",
+          "PR diff",
+          "Repository context"
+        ],
+        "outputs": [
+          "Draft PR description",
+          "PR comment"
+        ],
+        "scores": {
+          "variability": 3,
+          "criticality": 3,
+          "risk": 2
+        },
+        "recommendation": "LLM_ASSIST",
+        "rationale": "The code in src/describe.ts builds prompts and calls the Anthropic LLM API to generate PR descriptions, which are posted as draft comments for human review. This fits the LLM_ASSIST pattern, as the LLM output is not directly merged but provided for human oversight.",
+        "citations": [
+          "CIT-7be07a13"
+        ]
+      },
+      {
+        "task_id": "T2",
+        "name": "Automated merge eligibility check for dependency PRs",
+        "current_actor": "Bot",
+        "inputs": [
+          "PR metadata",
+          "Settings YAML",
+          "CI check statuses",
+          "Labels",
+          "Author"
+        ],
+        "outputs": [
+          "Merge decision comment",
+          "Auto-merge action (if eligible)"
+        ],
+        "scores": {
+          "variability": 2,
+          "criticality": 4,
+          "risk": 2
+        },
+        "recommendation": "RULES_AUTOMATION",
+        "rationale": "The merge check is implemented as a deterministic, rules-based system with no LLM involvement. It evaluates PRs against static criteria and merges only if all guardrails are satisfied.",
+        "citations": [
+          "CIT-05df619f",
+          "CIT-5cbc35d9"
+        ]
+      },
+      {
+        "task_id": "T3",
+        "name": "Post standardized PR comments (description, merge decision)",
+        "current_actor": "Bot",
+        "inputs": [
+          "LLM output",
+          "Rule evaluation results"
+        ],
+        "outputs": [
+          "Formatted PR comments"
+        ],
+        "scores": {
+          "variability": 1,
+          "criticality": 2,
+          "risk": 1
+        },
+        "recommendation": "RULES_AUTOMATION",
+        "rationale": "Comment formatting and posting is deterministic and does not require LLM or agentic logic.",
+        "citations": [
+          "CIT-1c120da9"
+        ]
+      }
+    ],
+    "execution_modes": [
+      {
+        "task_id": "T1",
+        "mode": "COLLABORATIVE",
+        "why": "LLM generates a draft PR description, but a human reviewer can edit or approve the final text before merge.",
+        "constraints": [
+          "LLM output is posted as a comment, not directly merged",
+          "Human can override or edit the description"
+        ],
+        "citations": [
+          "CIT-7be07a13"
+        ]
+      },
+      {
+        "task_id": "T2",
+        "mode": "STATIC",
+        "why": "Merge eligibility is determined by fixed, pre-defined rules with no adaptive or learning behavior.",
+        "constraints": [
+          "Only PRs from trusted bots and passing all checks are auto-merged",
+          "Blocked labels, protected paths, and size limits enforced"
+        ],
+        "citations": [
+          "CIT-05df619f",
+          "CIT-5cbc35d9"
+        ]
+      },
+      {
+        "task_id": "T3",
+        "mode": "STATIC",
+        "why": "Comment formatting and posting is deterministic and does not adapt to context.",
+        "constraints": [
+          "Only posts standardized, template-based comments"
+        ],
+        "citations": [
+          "CIT-1c120da9"
+        ]
+      }
+    ],
+    "guardrails": {
+      "strategic": [
+        "Auto-merge only for trusted dependency PRs (e.g., dependabot, renovate)",
+        "LLM-generated descriptions are drafts and require human review for non-dependency PRs"
+      ],
+      "operational": [
+        "Block merges if required checks fail, blocked labels present, or protected paths are modified",
+        "Enforce file and line change limits for auto-merges"
+      ],
+      "implementation": [
+        "Require API keys for LLM and GitHub to be securely managed",
+        "Log all LLM prompts and outputs for auditability",
+        "Exit with non-zero status on merge rule violations"
+      ]
+    },
+    "pilot": {
+      "recommended_first_task_id": "T1",
+      "baseline": [
+        "Current average time to write PR descriptions manually",
+        "Frequency of incomplete or unclear PR descriptions"
+      ],
+      "success_thresholds": [
+        "At least 70% reduction in manual PR description edits",
+        "No increase in merge errors or compliance violations"
+      ],
+      "sandbox_plan": [
+        "Run LLM-assisted PR description generation on a subset of dependency PRs",
+        "Require human review before merging LLM-drafted descriptions"
+      ],
+      "rollback_plan": [
+        "Disable LLM description generation if output quality is insufficient",
+        "Revert to manual PR description workflow if merge errors increase"
+      ],
+      "monitoring": [
+        "Track PR description edit frequency",
+        "Monitor for any merge rule violations or compliance issues",
+        "Collect feedback from reviewers on LLM-generated descriptions"
+      ]
+    },
+    "risks": {
+      "key_risks": [
+        "LLM may generate inaccurate or incomplete PR descriptions",
+        "Potential for API key leakage if not securely managed",
+        "False positives/negatives in rule-based merge eligibility"
+      ],
+      "unknowns": [
+        "LLM output quality across diverse codebases",
+        "Reviewer acceptance of LLM-generated descriptions"
+      ],
+      "assumptions": [
+        "LLM API calls are correctly implemented and authenticated",
+        "No direct auto-merge of LLM-generated content without human review",
+        "README claims about LLM use are supported by code in src/describe.ts"
+      ]
+    },
+    "citations": [
+      {
+        "id": "CIT-7be07a13",
+        "path": "src/describe.ts",
+        "commit_sha": "63c31e2d36371732336ef1074ccc6a3c6ac5076f",
+        "line_start": 1,
+        "line_end": 136,
+        "url": "https://github.com/itprodirect/rr-eval-pr-manager/blob/63c31e2d36371732336ef1074ccc6a3c6ac5076f/src/describe.ts#L1-L136",
+        "note": "Implements LLM prompt construction and calls Anthropic API for PR description generation."
+      },
+      {
+        "id": "CIT-05df619f",
+        "path": "src/merge_check.ts",
+        "commit_sha": "63c31e2d36371732336ef1074ccc6a3c6ac5076f",
+        "line_start": 1,
+        "line_end": 134,
+        "url": "https://github.com/itprodirect/rr-eval-pr-manager/blob/63c31e2d36371732336ef1074ccc6a3c6ac5076f/src/merge_check.ts#L1-L134",
+        "note": "Implements rules-based merge eligibility and auto-merge logic."
+      },
+      {
+        "id": "CIT-5cbc35d9",
+        "path": "src/rules.ts",
+        "commit_sha": "63c31e2d36371732336ef1074ccc6a3c6ac5076f",
+        "line_start": 1,
+        "line_end": 154,
+        "url": "https://github.com/itprodirect/rr-eval-pr-manager/blob/63c31e2d36371732336ef1074ccc6a3c6ac5076f/src/rules.ts#L1-L154",
+        "note": "Defines merge rules and evaluation logic for PRs."
+      },
+      {
+        "id": "CIT-1c120da9",
+        "path": "src/notify.ts",
+        "commit_sha": "63c31e2d36371732336ef1074ccc6a3c6ac5076f",
+        "line_start": 1,
+        "line_end": 63,
+        "url": "https://github.com/itprodirect/rr-eval-pr-manager/blob/63c31e2d36371732336ef1074ccc6a3c6ac5076f/src/notify.ts#L1-L63",
+        "note": "Formats and posts standardized PR comments."
+      }
+    ]
+  },
+  "createdAt": "2026-02-03T20:11:30.316Z"
+}

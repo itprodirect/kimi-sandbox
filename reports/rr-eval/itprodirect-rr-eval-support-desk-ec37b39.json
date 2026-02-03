@@ -1,0 +1,628 @@
+{
+  "id": "2730a159-c4d6-439a-9522-cfa5078206db",
+  "repoUrl": "https://github.com/itprodirect/rr-eval-support-desk",
+  "owner": "itprodirect",
+  "name": "rr-eval-support-desk",
+  "defaultBranch": "main",
+  "commitSha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+  "selectedPaths": [
+    "README.md",
+    "tsconfig.json",
+    "package.json",
+    "src/index.ts",
+    "jest.config.js",
+    "tests/tools.test.ts",
+    "tests/router.test.ts",
+    "cases/security_alert.json",
+    "cases/ambiguous_mixed.json",
+    "cases/technical_bug.json",
+    "cases/billing_simple.json",
+    "cases/billing_complex.json",
+    "config/limits.yaml",
+    "src/audit.ts",
+    "config/routing.yaml",
+    "src/state.ts",
+    "src/escalation.ts",
+    "src/router.ts",
+    "src/tools/credits.ts",
+    "src/tools/knowledge.ts",
+    "src/tools/accounts.ts",
+    "src/tools/registry.ts",
+    "src/workers/technical.ts",
+    "src/workers/general.ts",
+    "src/workers/billing.ts"
+  ],
+  "fileDigests": [
+    {
+      "path": "README.md",
+      "sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+      "size": 1736,
+      "lineCount": 57,
+      "chunks": 1
+    },
+    {
+      "path": "tsconfig.json",
+      "sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+      "size": 260,
+      "lineCount": 14,
+      "chunks": 1
+    },
+    {
+      "path": "package.json",
+      "sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+      "size": 445,
+      "lineCount": 23,
+      "chunks": 1
+    },
+    {
+      "path": "src/index.ts",
+      "sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+      "size": 1038,
+      "lineCount": 39,
+      "chunks": 1
+    },
+    {
+      "path": "jest.config.js",
+      "sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+      "size": 266,
+      "lineCount": 12,
+      "chunks": 1
+    },
+    {
+      "path": "tests/tools.test.ts",
+      "sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+      "size": 1241,
+      "lineCount": 39,
+      "chunks": 1
+    },
+    {
+      "path": "tests/router.test.ts",
+      "sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+      "size": 1497,
+      "lineCount": 50,
+      "chunks": 1
+    },
+    {
+      "path": "cases/security_alert.json",
+      "sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+      "size": 265,
+      "lineCount": 9,
+      "chunks": 1
+    },
+    {
+      "path": "cases/ambiguous_mixed.json",
+      "sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+      "size": 283,
+      "lineCount": 9,
+      "chunks": 1
+    },
+    {
+      "path": "cases/technical_bug.json",
+      "sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+      "size": 298,
+      "lineCount": 9,
+      "chunks": 1
+    },
+    {
+      "path": "cases/billing_simple.json",
+      "sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+      "size": 300,
+      "lineCount": 9,
+      "chunks": 1
+    },
+    {
+      "path": "cases/billing_complex.json",
+      "sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+      "size": 305,
+      "lineCount": 9,
+      "chunks": 1
+    },
+    {
+      "path": "config/limits.yaml",
+      "sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+      "size": 371,
+      "lineCount": 22,
+      "chunks": 1
+    },
+    {
+      "path": "src/audit.ts",
+      "sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+      "size": 775,
+      "lineCount": 34,
+      "chunks": 1
+    },
+    {
+      "path": "config/routing.yaml",
+      "sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+      "size": 806,
+      "lineCount": 32,
+      "chunks": 1
+    },
+    {
+      "path": "src/state.ts",
+      "sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+      "size": 1534,
+      "lineCount": 57,
+      "chunks": 1
+    },
+    {
+      "path": "src/escalation.ts",
+      "sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+      "size": 1556,
+      "lineCount": 51,
+      "chunks": 1
+    },
+    {
+      "path": "src/router.ts",
+      "sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+      "size": 5977,
+      "lineCount": 159,
+      "chunks": 1
+    },
+    {
+      "path": "src/tools/credits.ts",
+      "sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+      "size": 281,
+      "lineCount": 11,
+      "chunks": 1
+    },
+    {
+      "path": "src/tools/knowledge.ts",
+      "sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+      "size": 953,
+      "lineCount": 37,
+      "chunks": 1
+    },
+    {
+      "path": "src/tools/accounts.ts",
+      "sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+      "size": 1109,
+      "lineCount": 45,
+      "chunks": 1
+    },
+    {
+      "path": "src/tools/registry.ts",
+      "sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+      "size": 1869,
+      "lineCount": 65,
+      "chunks": 1
+    },
+    {
+      "path": "src/workers/technical.ts",
+      "sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+      "size": 3393,
+      "lineCount": 106,
+      "chunks": 1
+    },
+    {
+      "path": "src/workers/general.ts",
+      "sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+      "size": 3477,
+      "lineCount": 113,
+      "chunks": 1
+    },
+    {
+      "path": "src/workers/billing.ts",
+      "sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+      "size": 4450,
+      "lineCount": 126,
+      "chunks": 1
+    }
+  ],
+  "rubric": {
+    "meta": {
+      "repo_url": "https://github.com/itprodirect/rr-eval-support-desk",
+      "owner": "itprodirect",
+      "repo": "rr-eval-support-desk",
+      "commit_sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+      "default_branch": "main",
+      "detected_stack": [
+        "react",
+        "typescript"
+      ],
+      "analyzed_paths": [
+        "README.md",
+        "tsconfig.json",
+        "package.json",
+        "src/index.ts",
+        "jest.config.js",
+        "tests/tools.test.ts",
+        "tests/router.test.ts",
+        "cases/security_alert.json",
+        "cases/ambiguous_mixed.json",
+        "cases/technical_bug.json",
+        "cases/billing_simple.json",
+        "cases/billing_complex.json",
+        "config/limits.yaml",
+        "src/audit.ts",
+        "config/routing.yaml",
+        "src/state.ts",
+        "src/escalation.ts",
+        "src/router.ts",
+        "src/tools/credits.ts",
+        "src/tools/knowledge.ts",
+        "src/tools/accounts.ts",
+        "src/tools/registry.ts",
+        "src/workers/technical.ts",
+        "src/workers/general.ts",
+        "src/workers/billing.ts"
+      ],
+      "content_caps": {
+        "max_files": 25,
+        "max_total_chars": 250000,
+        "truncated": false
+      }
+    },
+    "classification": "C_TASK_AGENTS",
+    "scores": {
+      "variability": 4,
+      "strategic_importance": 5,
+      "operational_impact": 5,
+      "integration_readiness": 4,
+      "blast_radius_risk": 3,
+      "confidence": 0.95
+    },
+    "outcomes": {
+      "enterprise_outcome": "Automated, auditable, and scalable support ticket triage and resolution with reduced manual workload and faster response times.",
+      "workflow_outcome": "Tickets are automatically classified, routed, and resolved or escalated by specialized AI-driven agents, with all actions logged for audit and compliance.",
+      "kpis": {
+        "efficiency": [
+          "Average ticket resolution time (target: reduce by 50%)",
+          "Percentage of tickets auto-resolved without human intervention",
+          "Agent workload reduction (measured by manual handoffs avoided)"
+        ],
+        "quality": [
+          "Resolution accuracy (measured by post-resolution customer satisfaction surveys)",
+          "Escalation precision (percentage of escalations that are appropriate/necessary)",
+          "Audit completeness (all actions logged and traceable)"
+        ],
+        "business_impact": [
+          "Customer satisfaction score (CSAT) improvement",
+          "Support cost per ticket (target: reduce by 30%)",
+          "Retention rate for premium/enterprise customers"
+        ],
+        "risk_compliance": [
+          "Percentage of actions exceeding configured limits that are escalated",
+          "Incidents of unauthorized actions (should be zero)",
+          "Audit log integrity and completeness"
+        ]
+      }
+    },
+    "tasks": [
+      {
+        "task_id": "ticket_routing",
+        "name": "Automated Ticket Routing",
+        "current_actor": "Support Agent",
+        "inputs": [
+          "Ticket subject",
+          "Ticket body",
+          "Customer metadata"
+        ],
+        "outputs": [
+          "Assigned worker category (billing, technical, general)"
+        ],
+        "scores": {
+          "variability": 4,
+          "criticality": 4,
+          "risk": 2
+        },
+        "recommendation": "TASK_AGENT",
+        "rationale": "Routing is performed by both keyword heuristics and LLM-based reasoning, with escalation triggers and audit logging. The code implements agentic routing logic using Anthropic LLM and configurable rules.",
+        "citations": [
+          "CIT-3e29ecb7",
+          "CIT-872c737f"
+        ]
+      },
+      {
+        "task_id": "billing_resolution",
+        "name": "Automated Billing Ticket Resolution",
+        "current_actor": "Billing Specialist",
+        "inputs": [
+          "Ticket details",
+          "Account data",
+          "Knowledge base articles"
+        ],
+        "outputs": [
+          "Draft response",
+          "Credit proposal",
+          "Escalation flag"
+        ],
+        "scores": {
+          "variability": 4,
+          "criticality": 5,
+          "risk": 3
+        },
+        "recommendation": "TASK_AGENT",
+        "rationale": "BillingWorker agent uses LLM to draft responses and propose credits, auto-approving within thresholds and escalating as needed. Guardrails are enforced via config and tool registry.",
+        "citations": [
+          "CIT-75a97447",
+          "CIT-54b90961",
+          "CIT-13c6d80e"
+        ]
+      },
+      {
+        "task_id": "technical_resolution",
+        "name": "Automated Technical Ticket Resolution",
+        "current_actor": "Technical Support Specialist",
+        "inputs": [
+          "Ticket details",
+          "Account data",
+          "Knowledge base articles"
+        ],
+        "outputs": [
+          "Draft technical response",
+          "Proposed next actions",
+          "Escalation flag"
+        ],
+        "scores": {
+          "variability": 4,
+          "criticality": 4,
+          "risk": 3
+        },
+        "recommendation": "TASK_AGENT",
+        "rationale": "TechnicalWorker agent gathers context, prompts LLM for troubleshooting, and proposes actions or handoff, with escalation triggers and audit logging.",
+        "citations": [
+          "CIT-914e601a",
+          "CIT-13c6d80e",
+          "CIT-b26cab35"
+        ]
+      },
+      {
+        "task_id": "general_resolution",
+        "name": "Automated General Ticket Resolution",
+        "current_actor": "General Support Agent",
+        "inputs": [
+          "Ticket details",
+          "Knowledge base articles"
+        ],
+        "outputs": [
+          "Draft general response",
+          "Proposed next actions",
+          "Escalation flag"
+        ],
+        "scores": {
+          "variability": 3,
+          "criticality": 3,
+          "risk": 2
+        },
+        "recommendation": "TASK_AGENT",
+        "rationale": "GeneralWorker agent uses LLM to draft responses and route tickets to billing/technical as needed, with audit and escalation logic.",
+        "citations": [
+          "CIT-e565ba53",
+          "CIT-13c6d80e"
+        ]
+      },
+      {
+        "task_id": "audit_logging",
+        "name": "Automated Audit Logging",
+        "current_actor": "Support Supervisor",
+        "inputs": [
+          "Ticket ID",
+          "Event details"
+        ],
+        "outputs": [
+          "Audit log file"
+        ],
+        "scores": {
+          "variability": 2,
+          "criticality": 5,
+          "risk": 1
+        },
+        "recommendation": "RULES_AUTOMATION",
+        "rationale": "Audit logging is deterministic and rules-based, with no LLM or agentic logic required.",
+        "citations": [
+          "CIT-ca8b0dd7"
+        ]
+      }
+    ],
+    "execution_modes": [
+      {
+        "task_id": "ticket_routing",
+        "mode": "ADAPTIVE",
+        "why": "Routing logic adapts between keyword heuristics and LLM-based reasoning based on ticket content and configuration.",
+        "constraints": [
+          "Escalate if confidence is low or keywords match escalation triggers",
+          "Limit iterations to prevent infinite loops"
+        ],
+        "citations": [
+          "CIT-3e29ecb7",
+          "CIT-872c737f"
+        ]
+      },
+      {
+        "task_id": "billing_resolution",
+        "mode": "ADAPTIVE",
+        "why": "BillingWorker agent adapts actions based on LLM output, credit thresholds, and escalation rules.",
+        "constraints": [
+          "Auto-approve credits only within configured limits",
+          "Escalate all refunds and credits above threshold"
+        ],
+        "citations": [
+          "CIT-75a97447",
+          "CIT-54b90961"
+        ]
+      },
+      {
+        "task_id": "technical_resolution",
+        "mode": "ADAPTIVE",
+        "why": "TechnicalWorker agent adapts troubleshooting and handoff based on LLM output and detected keywords.",
+        "constraints": [
+          "Escalate if technical keywords match escalation triggers or confidence is low",
+          "Limit actions to allowed tools"
+        ],
+        "citations": [
+          "CIT-914e601a",
+          "CIT-b26cab35"
+        ]
+      },
+      {
+        "task_id": "general_resolution",
+        "mode": "ADAPTIVE",
+        "why": "GeneralWorker agent adapts routing and response based on LLM output and detected keywords.",
+        "constraints": [
+          "Escalate if escalation triggers are met",
+          "Route to billing/technical as needed"
+        ],
+        "citations": [
+          "CIT-e565ba53"
+        ]
+      },
+      {
+        "task_id": "audit_logging",
+        "mode": "STATIC",
+        "why": "Audit logging is deterministic and does not require adaptation.",
+        "constraints": [
+          "Log all actions and results for traceability"
+        ],
+        "citations": [
+          "CIT-ca8b0dd7"
+        ]
+      }
+    ],
+    "guardrails": {
+      "strategic": [
+        "Escalate all actions exceeding configured thresholds (credits, refunds, etc.)",
+        "Require human review for all escalated tickets"
+      ],
+      "operational": [
+        "Enforce action and credit limits via ToolRegistry",
+        "Log all actions and decisions for audit",
+        "Limit LLM iterations and set confidence thresholds"
+      ],
+      "implementation": [
+        "Validate configuration files (limits, routing) before deployment",
+        "Test escalation and auto-approval logic with edge cases",
+        "Monitor audit logs for anomalies or unauthorized actions"
+      ]
+    },
+    "pilot": {
+      "recommended_first_task_id": "ticket_routing",
+      "baseline": [
+        "Measure current average ticket routing time and accuracy",
+        "Track manual escalations and misrouted tickets"
+      ],
+      "success_thresholds": [
+        "At least 80% of tickets routed correctly without human intervention",
+        "No unauthorized actions or missed escalations",
+        "Audit logs are complete and accurate for all processed tickets"
+      ],
+      "sandbox_plan": [
+        "Deploy agentic routing in a test environment with synthetic and historical tickets",
+        "Enable dry-run mode to simulate actions without affecting production",
+        "Review audit logs and escalation outcomes with human supervisors"
+      ],
+      "rollback_plan": [
+        "Switch routing back to manual assignment if error rate exceeds threshold",
+        "Purge or quarantine audit logs if data integrity is compromised",
+        "Disable agentic components and revert to rules-based routing"
+      ],
+      "monitoring": [
+        "Track routing accuracy and escalation rates in real time",
+        "Alert on audit log gaps or unauthorized actions",
+        "Regularly review escalated tickets for false positives/negatives"
+      ]
+    },
+    "risks": {
+      "key_risks": [
+        "LLM may misclassify or misroute ambiguous tickets",
+        "Escalation triggers may be too broad or too narrow, leading to over/under-escalation",
+        "Improper configuration of limits could allow unauthorized actions",
+        "Audit log failures could hinder compliance or traceability"
+      ],
+      "unknowns": [
+        "Real-world ticket variability and edge cases not covered by current test cases",
+        "LLM performance on novel or adversarial ticket content",
+        "Integration challenges with upstream/downstream support systems"
+      ],
+      "assumptions": [
+        "All agentic and LLM-driven logic is implemented as described in code, not just in documentation",
+        "Configuration files are correctly maintained and validated before use",
+        "No undocumented side effects in tool or worker modules"
+      ]
+    },
+    "citations": [
+      {
+        "id": "CIT-3e29ecb7",
+        "path": "src/router.ts",
+        "commit_sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+        "line_start": 1,
+        "line_end": 159,
+        "url": "https://github.com/itprodirect/rr-eval-support-desk/blob/ec37b398918cb9a87338a15c114b7dfb614a0c01/src/router.ts#L1-L159",
+        "note": "Router class implements agentic ticket routing and resolution using LLM and configuration."
+      },
+      {
+        "id": "CIT-872c737f",
+        "path": "config/routing.yaml",
+        "commit_sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+        "line_start": 1,
+        "line_end": 32,
+        "url": "https://github.com/itprodirect/rr-eval-support-desk/blob/ec37b398918cb9a87338a15c114b7dfb614a0c01/config/routing.yaml#L1-L32",
+        "note": "Routing and escalation configuration for agentic ticket processing."
+      },
+      {
+        "id": "CIT-75a97447",
+        "path": "src/workers/billing.ts",
+        "commit_sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+        "line_start": 1,
+        "line_end": 126,
+        "url": "https://github.com/itprodirect/rr-eval-support-desk/blob/ec37b398918cb9a87338a15c114b7dfb614a0c01/src/workers/billing.ts#L1-L126",
+        "note": "BillingWorker agent automates billing ticket resolution with LLM and tool registry."
+      },
+      {
+        "id": "CIT-54b90961",
+        "path": "config/limits.yaml",
+        "commit_sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+        "line_start": 1,
+        "line_end": 22,
+        "url": "https://github.com/itprodirect/rr-eval-support-desk/blob/ec37b398918cb9a87338a15c114b7dfb614a0c01/config/limits.yaml#L1-L22",
+        "note": "Defines operational limits and escalation thresholds for agentic actions."
+      },
+      {
+        "id": "CIT-13c6d80e",
+        "path": "src/tools/registry.ts",
+        "commit_sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+        "line_start": 1,
+        "line_end": 65,
+        "url": "https://github.com/itprodirect/rr-eval-support-desk/blob/ec37b398918cb9a87338a15c114b7dfb614a0c01/src/tools/registry.ts#L1-L65",
+        "note": "ToolRegistry enforces action/credit limits and logs tool usage for agents."
+      },
+      {
+        "id": "CIT-914e601a",
+        "path": "src/workers/technical.ts",
+        "commit_sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+        "line_start": 1,
+        "line_end": 106,
+        "url": "https://github.com/itprodirect/rr-eval-support-desk/blob/ec37b398918cb9a87338a15c114b7dfb614a0c01/src/workers/technical.ts#L1-L106",
+        "note": "TechnicalWorker agent automates technical ticket triage and resolution."
+      },
+      {
+        "id": "CIT-b26cab35",
+        "path": "src/escalation.ts",
+        "commit_sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+        "line_start": 1,
+        "line_end": 51,
+        "url": "https://github.com/itprodirect/rr-eval-support-desk/blob/ec37b398918cb9a87338a15c114b7dfb614a0c01/src/escalation.ts#L1-L51",
+        "note": "Escalation logic for agentic ticket processing."
+      },
+      {
+        "id": "CIT-e565ba53",
+        "path": "src/workers/general.ts",
+        "commit_sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+        "line_start": 1,
+        "line_end": 113,
+        "url": "https://github.com/itprodirect/rr-eval-support-desk/blob/ec37b398918cb9a87338a15c114b7dfb614a0c01/src/workers/general.ts#L1-L113",
+        "note": "GeneralWorker agent automates general ticket triage and response."
+      },
+      {
+        "id": "CIT-ca8b0dd7",
+        "path": "src/audit.ts",
+        "commit_sha": "ec37b398918cb9a87338a15c114b7dfb614a0c01",
+        "line_start": 1,
+        "line_end": 34,
+        "url": "https://github.com/itprodirect/rr-eval-support-desk/blob/ec37b398918cb9a87338a15c114b7dfb614a0c01/src/audit.ts#L1-L34",
+        "note": "AuditLogger class for deterministic audit logging."
+      }
+    ]
+  },
+  "createdAt": "2026-02-03T04:14:45.703Z"
+}
